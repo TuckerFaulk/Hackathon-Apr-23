@@ -1,1 +1,1 @@
-web: gunicorn havscalcdb.wsgi
+web: gunicorn charlie_charlie_one.wsgi
