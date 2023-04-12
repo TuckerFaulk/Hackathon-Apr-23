@@ -1,3 +1,9 @@
+/* testing styling */
+.red-font {
+    color: red;
+}
+
+
 /* Toast Styling */
 
 .message-conatiner {
@@ -17,10 +23,10 @@
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
+    border-right: 4px solid transparent;
     border-bottom: 10px solid black;
     position: absolute;
     top: -10px;

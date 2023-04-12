@@ -1,46 +1,19 @@
 {% load static %}
-<footer>
-  <!-- Copyright-->
-  <!-- Site Navigation -->
-  <!-- Socials -->
-  <a
-    href=""
-    target="_blank"
-    rel="noopener"
-    aria-label="Facebook - Opens in a new tab">
-    <img
-      src="{% static 'icons/' %}"
-      alt="Facebook app icon"
-      class="social-icons" />
-  </a>
-  <a
-    href=""
-    target="_blank"
-    rel="noopener"
-    aria-label="Instagram - Opens in a new tab">
-    <img
-      src="{% static 'icons/' %}"
-      alt="Instagram app icon"
-      class="social-icons" />
-  </a>
-  <a
-    href=""
-    target="_blank"
-    rel="noopener"
-    aria-label="GitHub - Opens in a new tab">
-    <img
-      src="{% static 'icons/' %}"
-      alt="GitHub app icon"
-      class="social-icons" />
-  </a>
-  <a
-    href=""
-    target="_blank"
-    rel="noopener"
-    aria-label="Twitter - Opens in a new tab">
-    <img
-      src="{% static 'icons/' %}"
-      alt="Twitter app icon"
-      class="social-icons" />
-  </a>
+<footer class="footer mt-auto">
+    <div class=" row mx-auto">
+        <!-- Please follow the Facebook format when styling social media icons -->
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook - Opens in a new tab">
+            <i class="fa-brands fa-facebook" aria-hidden="true">
+                <span class="text-white social-font pl-2">Facebook</span></i>
+        </a>
+        <a href="" target="_blank" rel="noopener" aria-label="Instagram - Opens in a new tab">
+            <img src="{% static 'icons/' %}" alt="Instagram app icon" class="social-icons" />
+        </a>
+        <a href="" target="_blank" rel="noopener" aria-label="GitHub - Opens in a new tab">
+            <img src="{% static 'icons/' %}" alt="GitHub app icon" class="social-icons" />
+        </a>
+        <a href="" target="_blank" rel="noopener" aria-label="Twitter - Opens in a new tab">
+            <img src="{% static 'icons/' %}" alt="Twitter app icon" class="social-icons" />
+        </a>
+    </div>
 </footer>
