@@ -35,10 +35,13 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-  <!-- Messages -->
+    <!-- Navigation -->
+    {% include 'includes/header.html' %}
+
+      <!-- Messages -->
 
   {% if messages %}
-  <div class="message-container">
+  <div class="message-container ml-auto">
       {% for message in messages %}
           {% with message.level as level %}
               {% if level == 40 %}
@@ -55,9 +58,6 @@
   </div>
   {% endif %}
 
-    <!-- Navigation -->
-    {% include 'includes/header.html' %}
-
 
     <!-- Page Content -->
     {% block content %}
@@ -67,6 +67,10 @@
     {% block postloadjs %}
     <script type="text/javascript">
       $('.toast').toast('show');
+
+      setTimeout(function(){
+        $('.toast').toast('hide');
+      }, 3000);
     </script>
     {% endblock %}
 
