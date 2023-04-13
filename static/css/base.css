@@ -1,11 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@700&family=Lato:wght@300;400&family=Poppins:wght@300;400&display=swap');
+
 /* testing styling */
 .red-font {
     color: red;
 }
 
+/* NAVBAR */
+.navbar {
+    background-color: #254e58 !important;
+    text-decoration: none !important;   
+}
+
+.nav-link {
+    color: #fff !important;
+    border: 1px solid #254e58;
+    font-size: 1.25rem;
+    border-radius: 15%;
+}
+
+.active {
+    background-color: #3d819283;
+}
+
+.nav-link:hover {
+    border-bottom: 1px solid #fff;
+}
+
+
+
+
+
+
+/* HERO IMAGE AND COVER TEXT - HOME PAGE */
+
+/* hero image covers entirety of display with flex to center cover text */
+.hero-image {
+    height: 80vh;
+    width: 100%;
+    background: url('https://res.cloudinary.com/dzqdaqlba/image/upload/v1681406936/Hackathon%20London/applaude_mkb1nu.webp') no-repeat center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* cover text for marketing slogan */
+#cover-text {
+    background-color: rgb(255, 255, 255, 0.6);
+    padding: 30px;
+    font-size: 2rem;
+    text-align: center;
+    color:#2f4858; 
+}
+
+#cover-text h2 {
+    font-family: 'lato', sans-serif;
+    font-size: 3rem;
+    font-weight: normal;
+    letter-spacing: 3px;
+}
+
+#cover-text h3 {
+    font-family: 'lato', sans-serif;
+}
+
+
 /* FOOTER SECTION */ 
 .nav-item {
     display: inline-flex;
+    color: #fff;
 }
 
 .footer, footer a {

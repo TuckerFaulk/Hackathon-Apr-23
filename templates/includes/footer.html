@@ -8,21 +8,21 @@
             <div class="row">
                 <div class="col footer-left">
                     <ul class="list-unstyled text-center">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        <li class="nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                            <a class="nav-link" href="{% url 'home' %}">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">About Us</a>
+                        <li class="nav-item {% if request.resolver_match.url_name == 'about-us' %}active{% endif %}">
+                            <a class="nav-link active" aria-current="page" href="{% url 'about-us' %}">About Us</a>
                         </li>
                         {% if request.user.is_authenticated %}
-                        <li class="nav-item">
+                        <li class="nav-item {% if request.resolver_match.url_name == 'account_logout' %}active{% endif %}">
                             <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                         </li>
                         {% else %}
-                        <li class="nav-item">
+                        <li class="nav-item {% if request.resolver_match.url_name == 'account_login' %}active{% endif %}">
                             <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {% if request.resolver_match.url_name == 'account_signup' %}active{% endif %}">
                             <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                         </li>
                         {% endif %}
@@ -34,6 +34,7 @@
                         <li><i class="fa-solid fa-location-dot"></i>   16 Saint, John's Lane, London, EC1M 4BS</li>
                         <li><i class="fa-regular fa-envelope"></i>   cc1@charliecharlie1.com</li>
                         <li><i class="fa-solid fa-phone"></i>   0208 000 1111</li>
+
                     </ul>
                 </div>
                 <!--right-->
