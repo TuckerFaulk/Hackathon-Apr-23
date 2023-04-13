@@ -4,7 +4,7 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
-
+# Post filter options
 STATUS = (
     (0, "Draft"),
     (1, "Published")
@@ -12,6 +12,9 @@ STATUS = (
 
 
 class Author(models.Model):
+    """
+    A model to create the Author
+    """
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE
@@ -26,6 +29,9 @@ class Author(models.Model):
 
 
 class Category(models.Model):
+    """
+    A model to create the Post categories
+    """
     title = models.CharField(
         max_length=50
         )
@@ -43,6 +49,9 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+    """
+    A model to create the Post content
+    """
     title = models.CharField(
         max_length=200
         )
@@ -84,6 +93,9 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    """
+    A model to create the Comments
+    """
     post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
