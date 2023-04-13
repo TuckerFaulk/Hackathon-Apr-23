@@ -3,6 +3,45 @@
     color: red;
 }
 
+/* FOOTER SECTION */ 
+.nav-item {
+    display: inline-flex;
+}
+
+.footer, footer a {
+   background-color: #254e58;
+   color: #fff;
+   text-decoration: none;   
+}
+
+.footer a:hover {
+    color: #88bdbc;
+}
+
+.footer-middle {
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-left {
+    display: inline-flex;
+    font-size: 1rem;
+    padding: 1rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-right {
+    display: inline-flex;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+/* END OF FOOTER SECTION */
+
 
 /* Toast Styling */
 
