@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <h1 class="text-center">Public Profiles</h1>
+    <!-- SEARCHING & FILTERING: -->
+    <!-- <div class="container mx-auto pr-5 pl-r">
+        <form class="form-inline my-2 my-lg-0" method="GET">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{ search_term }}">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div> -->
+
+    <div class="container mx-auto pr-5 pl-r">
+        <form class="form-inline my-2 my-lg-0 mx-5" method="GET">
+            <select class="form-control mr-sm-2" name="rank">
+            <option value="">Rank</option>
+            <option value="rank1">Rank 1</option>
+            <option value="rank2">Rank 2</option>
+            <!-- Add other options for rank -->
+            </select>
+
+            <select class="form-control mr-sm-2" name="branch_of_military_served">
+            <option value="">Branch of Military Served</option>
+            <option value="british_army">British Army</option>
+            <option value="royal_air_force">Royal Air Force</option>
+            <option value="royal_marines">Royal Marines</option>
+            <option value="royal_navy">Royal Navy</option>
+            </select>
+
+            <input class="form-control mr-sm-2" type="search" placeholder="Length of Service" aria-label="Length of Service" name="length_of_service" value="{{ request.GET.length_of_service }}">
+
+            <input class="form-control mr-sm-2" type="search" placeholder="Deployment" aria-label="Deployment" name="deployment" value="{{ request.GET.deployment }}">
+
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filter</button>
+        </form>
+    </div>
+
+
+    <div class="container mx-5">
+        <form method="get">
+            <div class="mb-3">
+            <label for="rank" class="form-label">Rank:</label>
+            <input type="text" class="form-control" id="rank" name="rank" value="{{ rank }}">
+            </div>
+            <div class="mb-3">
+            <label for="branch_of_military_served" class="form-label">Branch of Military Served:</label>
+            <input type="text" class="form-control" id="branch_of_military_served" name="branch_of_military_served" value="{{ branch_of_military_served }}">
+            </div>
+            <div class="mb-3">
+            <label for="length_of_service" class="form-label">Length of Service:</label>
+            <input type="text" class="form-control" id="length_of_service" name="length_of_service" value="{{ length_of_service }}">
+            </div>
+            <div class="mb-3">
+            <label for="past_deployments" class="form-label">Past Deployments:</label>
+            <input type="text" class="form-control" id="past_deployments" name="past_deployments" value="{{ past_deployments }}">
+            </div>
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <!-- DISPLAYS THE LIST OF PROFILES -->
+    {% if queryset %}
+    <div class="row">
+        {% for profile in queryset %}
+        <div class="col-md-4">
+        <div class="card mb-4">
+            <img src="{{ profile.profile_picture.url }}" class="card-img-top" alt="{{ profile.preferred_display_name }}">
+            <div class="card-body">
+            <h5 class="card-title">{{ profile.preferred_display_name }}</h5>
+            <p class="card-text">{{ profile.about_me }}</p>
+            <a href="{{ profile.get_absolute_url }}" class="btn btn-primary">View Profile</a>
+            </div>
+        </div>
+        </div>
+        {% empty %}
+        <p>No results found.</p>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p>No profiles found.</p>
+    {% endif %}
+    </div>
+{% endblock %}
+
