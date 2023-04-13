@@ -23,6 +23,12 @@
     text-align: center;
     justify-content: center;
     align-items: center;
+    line-height: 1.5rem;
+    padding-top: 0.75rem;
+}
+
+.footer-middle i {
+    font-size: 1rem;
 }
 
 .footer-left {
