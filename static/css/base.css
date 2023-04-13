@@ -187,3 +187,33 @@
 .cancel {
     background-color: #254E58;
 }
+
+
+/* Public Profile */
+
+.pp-img {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#about-me {
+    width: 80%;
+    border: 1px rgba(128, 128, 128, 0.404) solid;
+    padding: 10px;
+    margin-top: 0px;
+    position: absolute;
+}
+
+#about-me-title {
+    width: 90px;
+    position: relative;
+    background-color: white;
+    bottom: 25px;
+}
+
+#about-me-content {
+    position: relative;
+    bottom: 10px;
+}
