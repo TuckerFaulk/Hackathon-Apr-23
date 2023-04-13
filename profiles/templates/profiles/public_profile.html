@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mx-auto">
+        {% if user_profile.preferred_display_name %}
+        <h1 class="red-font text-center">{{ user_profile.preferred_display_name }}</h1>
+        {% endif %}
+
+        {% if user_profile.profile_picture %}
+            <img src="{{ user_profile.profile_picture.url }}" alt="{{ user_profile.preferred_display_name }}">
+        {% endif %}
+
+        {% if user_profile.is_fullname %}
+        <div class="row">
+            <div class="col-sm-3 font-weight-bold red-font text-center">Full Name:</div>
+            <div class="col-sm-9">{{ user_profile.fullname }}</div>
+        </div>
+        {% endif %}
+
+        {% if user_profile.is_user_email %}
+            {% if user_profile.user_email %}
+                <p><strong>Email:</strong> {{ user_profile.user_email }}</p>
+            {% endif %}
+        {% endif %}
+
+        {% if user_profile.is_user_phone %}
+            {% if user_profile.user_phone %}
+                <p><strong>Phone:</strong> {{ user_profile.user_phone }}</p>
+            {% endif %}
+        {% endif %}
+
+        {% if user_profile.is_linkedin %}
+            {% if user_profile.linkedin %}
+                <p><strong>LinkedIn:</strong> {{ user_profile.linkedin }}</p>
+            {% endif %}
+        {% endif %}
+
+        {% if user_profile.is_about_me %}
+            {% if user_profile.about_me %}
+                <p><strong>About Me:</strong> {{ user_profile.about_me|safe }}</p>
+            {% endif %}
+        {% endif %}
+
+        {% if user_profile.is_rank %}
+            {% if user_profile.rank %}
+                <p><strong>Rank:</strong> {{ user_profile.rank }}</p>
+            {% endif %}
+        {% endif %}
+
+        {% if user_profile.is_branch_of_military_served %}
+            {% if user_profile.branch_of_military_served %}
+                <p><strong>Branch of Military Served:</strong> {{ user_profile.branch_of_military_served }}</p>
+            {% endif %}
+        {% endif %}
+
+        {% if user_profile.is_length_of_service %}
+            {% if user_profile.length_of_service %}
+                <p><strong>Length of Service:</strong> {{ user_profile.length_of_service }}</p>
+            {% endif %}
+        {% endif %}
+
+        {% if user_profile.is_past_deployments %}
+            {% if user_profile.past_deployments %}
+                <p><strong>Past Deployments:</strong> {{ user_profile.past_deployments|safe }}</p>
+            {% endif %}
+        {% endif %}
+
+    </div>
+
+{% endblock %}
