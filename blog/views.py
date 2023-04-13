@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import *
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 # Create your views here.
 
@@ -12,6 +12,11 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "post_list.html"
     paginate_by = 24
+
+    def get_context_data(self, **kwargs):
+        context = super(PostList, self).get_context_data(**kwargs)
+        context['post_form'] = PostForm()
+        return context
 
 
 class PostDetail(View):
