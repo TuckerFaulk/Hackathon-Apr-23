@@ -78,3 +78,16 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     else:
         # Existing users: just save the profile
         instance.userprofile.save()
+
+
+class FollowList(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE,
+                             related_name='following')
+    followed_user = models.ForeignKey(UserProfile, on_delete=models.CASCADE,
+                                      related_name='followers')
+
+    def __str__(self):
+        """String representation of the FollowUser model"""
+        return '{} follow {}'.format(
+            self.user.username, self.followed_user.preferred_display_name
+        )
