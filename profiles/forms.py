@@ -34,21 +34,25 @@ class UserProfileForm(forms.ModelForm):
         ]
 
     def save(self, commit=True):
+        # Get the cleaned data once to avoid repeated lookups
+        cleaned_data = self.cleaned_data
+
         instance = super().save(commit=False)
 
-        # Set the public/private flags based on the checkbox values
-        instance.is_preferred_display_name = self.cleaned_data.get('is_preferred_display_name', False)
-        instance.is_fullname = self.cleaned_data.get('is_fullname', False)
-        instance.is_user_email = self.cleaned_data.get('is_user_email', False)
-        instance.is_user_phone = self.cleaned_data.get('is_user_phone', False)
-        instance.is_linkedin = self.cleaned_data.get('is_linkedin', False)
-        instance.is_profile_picture = self.cleaned_data.get('is_profile_picture', False)
-        instance.is_about_me = self.cleaned_data.get('is_about_me', False)
-        instance.is_rank = self.cleaned_data.get('is_rank', False)
-        instance.is_branch_of_military_served = self.cleaned_data.get('is_branch_of_military_served', False)
-        instance.is_length_of_service = self.cleaned_data.get('is_length_of_service', False)
-        instance.is_past_deployments = self.cleaned_data.get('is_past_deployments', False)
+        # Set the flags based on the checkbox values
+        instance.is_preferred_display_name = cleaned_data.get('is_preferred_display_name', False)
+        instance.is_fullname = cleaned_data.get('is_fullname', False)
+        instance.is_user_email = cleaned_data.get('is_user_email', False)
+        instance.is_user_phone = cleaned_data.get('is_user_phone', False)
+        instance.is_linkedin = cleaned_data.get('is_linkedin', False)
+        instance.is_profile_picture = cleaned_data.get('is_profile_picture', False)
+        instance.is_about_me = cleaned_data.get('is_about_me', False)
+        instance.is_rank = cleaned_data.get('is_rank', False)
+        instance.is_branch_of_military_served = cleaned_data.get('is_branch_of_military_served', False)
+        instance.is_length_of_service = cleaned_data.get('is_length_of_service', False)
+        instance.is_past_deployments = cleaned_data.get('is_past_deployments', False)
 
         if commit:
             instance.save()
+
         return instance

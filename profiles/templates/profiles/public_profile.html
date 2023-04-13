@@ -50,7 +50,7 @@
 
         {% if user_profile.is_branch_of_military_served %}
             {% if user_profile.branch_of_military_served %}
-                <p><strong>Branch of Military Served:</strong> {{ user_profile.branch_of_military_served }}</p>
+                <p><strong>Branch of Military Served:</strong> {{ user_profile.get_branch_of_military_served_display }}</p>
             {% endif %}
         {% endif %}
 
