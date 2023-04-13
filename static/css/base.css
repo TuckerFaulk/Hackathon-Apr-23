@@ -65,3 +65,17 @@
 .arrow-dark {
     border-bottom-color: #343a40 !important;
 }
+
+/* Buttons */
+
+.btn {
+    border: 0;
+    border-radius: 10px;
+    color: white;
+    background-color: #88BDBC;
+    margin-bottom: 3px;
+}
+
+.cancel {
+    background-color: #254E58;
+}
