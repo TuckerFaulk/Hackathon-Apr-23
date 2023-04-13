@@ -1,5 +1,5 @@
-{% load static %}
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 {% load crispy_forms_tags %}
 
@@ -51,6 +51,13 @@
                         <!-- The number of likes goes before the closing strong tag -->
                         <span class="text-secondary">{{ post.number_of_likes }} </span>
                         </strong>
+                        <div class="col-1">
+                            {% with comments.count as total_comments %}
+                            <strong class="text-secondary"><i class="far fa-comments"></i>
+                                <!-- Our total_comments variable goes before the closing strong tag -->
+                                {{ total_comments }}</strong>
+                            {% endwith %}
+                        </div>
                     </div>
                 </div>
             </div>
