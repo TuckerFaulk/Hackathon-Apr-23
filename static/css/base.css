@@ -6,19 +6,32 @@
 }
 
 /* NAVBAR */
+.navbar-brand {
+    background-image: url('https://res.cloudinary.com/dzqdaqlba/image/upload/v1681463794/Hackathon%20London/cropped-logo_c4klcr.png');
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+    margin-left: 5%;
+}
+
 .navbar {
-    background-color: #254e58 !important;
+    background-color: #89bdbb !important;
     text-decoration: none !important;   
+    padding-right: 5%;
 }
 
 .nav-link {
     color: #fff !important;
     font-size: 1.25rem;
-    border-radius: 15%;
+    border-bottom: 1px solid #89bdbb;
+    
 }
 
 .active {
-    background-color: #3d819283;
+    border-bottom: 1px solid #fff;
 }
 
 .nav-link:hover {
@@ -39,6 +52,8 @@
     margin-bottom: 20px;
     text-align: center;
     position: relative;
+    padding: 10px;
+    
   }
   
   .card img {
@@ -75,50 +90,14 @@
     font-size: 14px;
     line-height: 1.5;
     margin-top: 10px;
-    height: 100px;
+    margin-bottom: 10px;
+    height: 75px;
   }
 
   /* pictures */ 
   
 .picture1 {
     background-image: url('https://res.cloudinary.com/dzqdaqlba/image/upload/v1681406937/Hackathon%20London/community1_cbuqfe.webp');
-    overflow: hidden;
-    background-size: cover;
-    background-position: center center;
-    width: 100%;
-    height: 200px;
-}
-
-.picture2 {
-    background-image: url('https://res.cloudinary.com/dzqdaqlba/image/upload/v1681406936/Hackathon%20London/chinook-exercise_mlvdeu.webp');
-    overflow: hidden;
-    background-size: cover;
-    background-position: center center;
-    width: 100%;
-    height: 200px;
-}
-
-.picture3 {
-    background-image: url('https://res.cloudinary.com/dzqdaqlba/image/upload/v1681406932/Hackathon%20London/help_sqm7mz.webp');
-    overflow: hidden;
-    background-size: cover;
-    background-position: center center;
-    width: 100%;
-    height: 200px;
-}
-
-.picture4 {
-    background-image: url('https://res.cloudinary.com/dzqdaqlba/image/upload/v1681406937/Hackathon%20London/family_irdndj.webp');
-    overflow: hidden;
-    background-size: cover;
-    background-position: center center;
-    width: 100%;
-    height: 200px;
-}
-
-.picture5 {
-    background-image: url('https://res.cloudinary.com/dzqdaqlba/image/upload/v1681406933/Hackathon%20London/hug_etfz4u.webp');
-    
     object-fit: cover;
     background-size: cover;
     background-position: center;
@@ -126,7 +105,61 @@
     height: 200px;
 }
 
+.picture2 {
+    background-image: url('https://res.cloudinary.com/dzqdaqlba/image/upload/v1681406936/Hackathon%20London/chinook-exercise_mlvdeu.webp');
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 200px;
+}
 
+.picture3 {
+    background-image: url('https://res.cloudinary.com/dzqdaqlba/image/upload/v1681406932/Hackathon%20London/help_sqm7mz.webp');
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 200px;
+}
+
+.picture4 {
+    background-image: url('https://res.cloudinary.com/dzqdaqlba/image/upload/v1681406937/Hackathon%20London/family_irdndj.webp');
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 200px;
+}
+
+.picture5 {
+    background-image: url('https://res.cloudinary.com/dzqdaqlba/image/upload/v1681406933/Hackathon%20London/hug_etfz4u.webp');
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 200px;
+}
+
+@media screen and (max-width: 1100px) {
+    .card {
+        width: 49%;
+      }
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        width: 100%;
+      }
+}
+
+/* CAROUSEL */
+
+.carousel-item {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
 
 
@@ -145,8 +178,8 @@
 
 /* cover text for marketing slogan */
 #cover-text {
-    background-color: rgb(255, 255, 255, 0.6);
-    padding: 30px;
+    background-color: rgb(255, 255, 255, 0.55);
+    width: 80%;
     font-size: 2rem;
     text-align: center;
     color:#2f4858; 
@@ -171,7 +204,7 @@
 }
 
 .footer, footer a {
-   background-color: #254e58;
+   background-color: #89bdbb;
    color: #fff;
    text-decoration: none;   
 }
