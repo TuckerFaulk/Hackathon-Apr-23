@@ -166,18 +166,20 @@ def add_to_follow(request, user_id):
     followed_user = get_object_or_404(UserProfile, user=user)
 
     # Check if the user is already in the follow list
-    existing = FollowList.objects.filter(followed_user=followed_user, user=request.user).exists()
+    existing = FollowList.objects.filter(followed_user=followed_user,
+                                         user=request.user).exists()
 
     if existing:
         messages.info(
             request,
-            f'{followed_user.preferred_display_name} is already in your follow list.'
+            f'{followed_user.preferred_display_name} is already in your list.'
         )
     else:
-        follow_user = FollowList.objects.create(followed_user=followed_user, user=request.user)
+        follow_user = FollowList.objects.create(followed_user=followed_user,
+                                                user=request.user)
         messages.success(
             request,
-            f'{followed_user.preferred_display_name} has been added to your follow list.'
+            f'{followed_user.preferred_display_name} is added to your list.'
         )
 
     return redirect(reverse('public_profile', args=[followed_user.id]))
@@ -200,3 +202,15 @@ def remove_from_follow_list(request, user_id):
     )
 
     return redirect(reverse('public_profile', args=[public_profile.id]))
+
+
+@login_required
+def following_list(request):
+    user = request.user
+    user_profile = UserProfile.objects.get(user=user)
+    followuser = FollowList.objects.filter(user=user)
+    context = {
+        'user_profile': user_profile,
+        'followuser': followuser,
+    }
+    return render(request, 'profiles/profile.html', context)
