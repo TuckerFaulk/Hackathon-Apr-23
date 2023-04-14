@@ -77,7 +77,7 @@ class Post(models.Model):
         )
     status = models.IntegerField(
         choices=STATUS,
-        default=0)
+        default=1)
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
     featured = models.BooleanField(default=False)
@@ -110,7 +110,7 @@ class Comment(models.Model):
         auto_now_add=True
         )
     approved = models.BooleanField(
-        default=False
+        default=True
         )
 
     class Meta:
