@@ -124,119 +124,48 @@
     </div>
 
     <!-- LISTS OF PROFILES THE USER IS FOLLOWING -->
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h2>View and Edit the List of Veterans You are Following</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                {% if followuser %}
-                <p>List of Veterans You Are Following:</p>
-                {% else %}
-                <p class="mt-1">You are not following anyone.</p>
-                <div class="col mt-3 pl-0">
-                    <li class="nav-item {% if request.resolver_match.url_name == '/public_profile_list/' %}active{% endif %}">
-                        <a class="nav-link" href="{% url 'public_profile_list' %}">Find a Veteran</a>
+    <div class="container mt-5">
+        {% if followed_users %}
+            <h3>Users you are following:</h3>
+            <ul>
+                {% for followed_user in followed_users %}
+                    <li>
+                        <a href="{% url 'public_profile' followed_user.followed_user.id %}">
+                            {{ followed_user.followed_user.preferred_display_name }}
+                        </a>
+                        {% if followed_user.followed_user.is_fullname %}
+                            <br>{{ followed_user.followed_user.fullname }}
+                        {% endif %}
+                        {% if followed_user.followed_user.is_user_email %}
+                            <br>{{ followed_user.followed_user.user_email }}
+                        {% endif %}
+                        {% if followed_user.followed_user.is_user_phone %}
+                            <br>{{ followed_user.followed_user.user_phone }}
+                        {% endif %}
+                        {% if followed_user.followed_user.is_linkedin %}
+                            <br>{{ followed_user.followed_user.linkedin }}
+                        {% endif %}
+                        {% if followed_user.followed_user.is_rank %}
+                            <br>{{ followed_user.followed_user.rank }}
+                        {% endif %}
+                        {% if followed_user.followed_user.is_branch_of_military_served %}
+                            <br>{{ followed_user.followed_user.get_branch_of_military_served_display }}
+                        {% endif %}
+                        {% if followed_user.followed_user.is_length_of_service %}
+                            <br>{{ followed_user.followed_user.length_of_service }}
+                        {% endif %}
+                        {% if followed_user.followed_user.is_past_deployments %}
+                            <br>{{ followed_user.followed_user.past_deployments }}
+                        {% endif %}
                     </li>
-                </div>
-                {% endif %}
-            </div>
-        </div>
-        <div class="container mb-5">
-            {% if followuser %}
-                <div class="container mx-auto">
-                    {% if user_profile.preferred_display_name %}
-                    <h1 class="red-font text-center">{{ user_profile.preferred_display_name }}</h1>
-                    {% endif %}
-
-                    {% if user_profile.profile_picture %}
-                        <img src="{{ user_profile.profile_picture.url }}" alt="{{ user_profile.preferred_display_name }}">
-                    {% endif %}
-
-                    {% if user_profile.is_fullname %}
-                    <div class="row">
-                        <div class="col-sm-3 font-weight-bold red-font text-center">Full Name:</div>
-                        <div class="col-sm-9">{{ user_profile.fullname }}</div>
-                    </div>
-                    {% endif %}
-
-                    {% if user_profile.is_user_email %}
-                        {% if user_profile.user_email %}
-                            <p><strong>Email:</strong> {{ user_profile.user_email }}</p>
-                        {% endif %}
-                    {% endif %}
-
-                    {% if user_profile.is_user_phone %}
-                        {% if user_profile.user_phone %}
-                            <p><strong>Phone:</strong> {{ user_profile.user_phone }}</p>
-                        {% endif %}
-                    {% endif %}
-
-                    {% if user_profile.is_linkedin %}
-                        {% if user_profile.linkedin %}
-                            <p><strong>LinkedIn:</strong> {{ user_profile.linkedin }}</p>
-                        {% endif %}
-                    {% endif %}
-
-                    {% if user_profile.is_about_me %}
-                        {% if user_profile.about_me %}
-                            <p><strong>About Me:</strong> {{ user_profile.about_me|safe }}</p>
-                        {% endif %}
-                    {% endif %}
-
-                    {% if user_profile.is_rank %}
-                        {% if user_profile.rank %}
-                            <p><strong>Rank:</strong> {{ user_profile.rank }}</p>
-                        {% endif %}
-                    {% endif %}
-
-                    {% if user_profile.is_branch_of_military_served %}
-                        {% if user_profile.branch_of_military_served %}
-                            <p><strong>Branch of Military Served:</strong> {{ user_profile.get_branch_of_military_served_display }}</p>
-                        {% endif %}
-                    {% endif %}
-
-                    {% if user_profile.is_length_of_service %}
-                        {% if user_profile.length_of_service %}
-                            <p><strong>Length of Service:</strong> {{ user_profile.length_of_service }}</p>
-                        {% endif %}
-                    {% endif %}
-
-                    {% if user_profile.is_past_deployments %}
-                        {% if user_profile.past_deployments %}
-                            <p><strong>Past Deployments:</strong> {{ user_profile.past_deployments|safe }}</p>
-                        {% endif %}
-                    {% endif %}
-                </div>
-            {% endif %}
-        </div>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You are not following any users yet.</p>
+        {% endif %}
 
     </div>
 
-    <!-- LISTS OF PROFILES THE USER IS FOLLOWING -->
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h2>View and Edit the List of Veterans You are Following</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                {% if followuser %}
-                    <p>List of Veterans You Are Following:</p>
-                    <ul>
-                    {% for followee in followuser %}
-                        <li>{{ followee.followed_user }}</li>
-                    {% endfor %}
-                    </ul>
-                {% else %}
-                    <p>You are not following anyone.</p>
-                {% endif %}
-            </div>
-        </div>
-    </div>
 
 
 {% endblock %}

@@ -15,6 +15,9 @@ from django.views.decorators.http import require_POST
 def profile(request):
     """View for displaying and updating user profile"""
     profile = request.user.userprofile
+    followed_users = (
+        FollowList.objects.filter(user=request.user).select_related('followed_user')
+    )
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
@@ -34,6 +37,7 @@ def profile(request):
     context = {
         'form': form,
         'profile': profile,
+        'followed_users': followed_users,
     }
     return render(request, template, context)
 
@@ -131,23 +135,23 @@ def public_profile_search(request):
     return render(request, 'profiles/public_profile_list.html', context)
 
 
-def followuser(request):
-    """A view to show the user's following list"""
+def followlist(request):
+    """ A view to show the user's followlist """
     if not request.user.is_authenticated:
         messages.error(
             request,
-            'Sorry, you need to be logged in to add to your following list'
+            'Sorry, you need to be logged in to add your FollowList.'
         )
+        return redirect(reverse('account_login'))
 
-    user = get_object_or_404(UserProfile, user=request.user)
-    followed_users = FollowList.objects.filter(user=user)
-
-    template = 'profiles/public_profile.html'
-
+    user = request.user
+    followed_users = (
+        FollowList.objects.filter(user=user).select_related('followed_user')
+    )
     context = {
         'followed_users': followed_users,
     }
-    return render(request, template, context)
+    return render(request, 'profile.html', context)
 
 
 def add_to_follow(request, user_id):
@@ -202,15 +206,3 @@ def remove_from_follow_list(request, user_id):
     )
 
     return redirect(reverse('public_profile', args=[public_profile.id]))
-
-
-@login_required
-def following_list(request):
-    user = request.user
-    user_profile = UserProfile.objects.get(user=user)
-    followuser = FollowList.objects.filter(user=user)
-    context = {
-        'user_profile': user_profile,
-        'followuser': followuser,
-    }
-    return render(request, 'profiles/profile.html', context)

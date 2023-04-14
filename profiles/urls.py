@@ -12,11 +12,8 @@ urlpatterns = [
           name='public_profile_search'),
      path('profile/list/', views.public_profile_list,
           name='public_profile_list'),
-     path('profile/followlist/', views.followuser, name='followlist'),
-     path('follow-list/', views.followuser, name='follow_list'),
      path('add-to-follow-list/<int:user_id>/',
           views.add_to_follow, name='add_to_follow'),
      path('remove-from-follow-list/<int:user_id>/',
           views.remove_from_follow_list, name='remove_from_follow'),
-
 ]
