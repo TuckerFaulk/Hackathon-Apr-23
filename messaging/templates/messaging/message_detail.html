@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="mb-4">{{ message.subject }}</h1>
+    <p class="mb-4">From: {{ message.sender.username }}<br>Timestamp: {{ message.timestamp|date:"F j, Y, g:i a" }}</p>
+    <p>{{ message.message }}</p>
+    {% if not message.read %}
+        <form method="post" class="mt-4 needs-validation" novalidate>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary mt-3">Reply</button>
+        </form>
+    {% endif %}
+{% endblock %}
+
+{% block scripts %}
+  {{ form.media }}
+{% endblock %}

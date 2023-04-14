@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from .forms import UserProfileForm
 from .models import UserProfile, FollowList
+from messaging.models import Message
 from django.db.models import Q
 from django.http import HttpResponseBadRequest
 from django.views.decorators.http import require_POST
@@ -17,8 +18,10 @@ def profile(request):
     """View for displaying and updating user profile"""
     profile = request.user.userprofile
     followed_users = (
-        FollowList.objects.filter(user=request.user).select_related('followed_user')
-    )
+        FollowList.objects
+        .filter(user=request.user)
+        .select_related('followed_user')
+        )
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
@@ -55,11 +58,20 @@ def public_profile(request, id):
 
     current_user_profile = request.user.userprofile
 
+    # Get the recipient user object
+    recipient_id = id
+
+    # Construct the messaging URL
+    messaging_url = reverse('messaging:compose_message',
+                            kwargs={'recipient_id': recipient_id})
+
     template = 'profiles/public_profile.html'
     context = {
         'user_profile': user_profile,
         'public_fields': public_fields,
         'current_user_profile': current_user_profile,
+        'messaging_url': messaging_url,
+
     }
     return render(request, template, context)
 
