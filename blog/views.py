@@ -2,16 +2,47 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import *
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
+from django.views.generic.edit import ModelFormMixin
 
 # Create your views here.
 
 
-class PostList(generic.ListView):
+class PostList(generic.ListView, ModelFormMixin):
     model = Post
+    form_class = PostForm
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "post_list.html"
     paginate_by = 24
+
+    def get(self, request, *args, **kwargs):
+        self.object = None
+        self.form = self.get_form(self.form_class)
+        # Explicitly states what get to call:
+        return generic.ListView.get(self, request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        # When the form is submitted, it will enter here
+        self.object = None
+        self.form = self.get_form(self.form_class)
+
+        if self.form.is_valid():
+            self.object = self.form.save(commit=False)
+            self.form_class.Author = request.user
+            self.form.save()
+            self.form = self.get_form(self.form_class)
+
+            # Here ou may consider creating a new instance of form_class(),
+            # so that the form will come clean.
+
+        # Whether the form validates or not, the view will be rendered by get()
+        return self.get(request, *args, **kwargs)
+
+    def get_context_data(self, *args, **kwargs):
+        # Just include the form
+        context = super(PostList, self).get_context_data(*args, **kwargs)
+        context['post_form'] = self.form
+        return context
 
 
 class PostDetail(View):

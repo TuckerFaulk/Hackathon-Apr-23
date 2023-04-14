@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+{% load crispy_forms_tags %}
 
 <div class="container-fluid">
     <div class="row">
-
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
@@ -38,7 +38,6 @@
             <div class="row">
                 {% endif %}
                 {% endfor %}
-
             </div>
         </div>
     </div>
@@ -56,5 +55,18 @@
     </nav>
     {% endif %}
 </div>
-
+<div class="col-md-4 card mb-4  mt-3 ">
+    <div class="card-body">
+        <!-- For later -->
+        {% if user.is_authenticated %}
+        <h3>Leave a Post:</h3>
+        <p>Posting as: {{ user.username }}</p>
+        <form method="post" style="margin-top: 1.3em;">
+            {{ post_form | crispy }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+        </form>
+        {% endif %}
+    </div>
+</div>
 {% endblock content %}
