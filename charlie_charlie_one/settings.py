@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'cloudinary_storage',
+    'django_summernote',
     'django.contrib.staticfiles',
     'cloudinary',
 

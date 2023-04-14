@@ -1,20 +1,52 @@
 {% load static %}
 <footer class="footer mt-auto">
     <div class=" row mx-auto">
-        <!-- Please follow the Facebook format when styling social media icons -->
-        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook - Opens in a new tab">
-            <i class="fa-brands fa-facebook" aria-hidden="true">
-                <span class="text-white social-font pl-2">Facebook</span>
-            </i>
-        </a>
-        <a href="" target="_blank" rel="noopener" aria-label="Instagram - Opens in a new tab">
-            <img src="{% static 'icons/' %}" alt="Instagram app icon" class="social-icons" />
-        </a>
-        <a href="" target="_blank" rel="noopener" aria-label="GitHub - Opens in a new tab">
-            <img src="{% static 'icons/' %}" alt="GitHub app icon" class="social-icons" />
-        </a>
-        <a href="" target="_blank" rel="noopener" aria-label="Twitter - Opens in a new tab">
-            <img src="{% static 'icons/' %}" alt="Twitter app icon" class="social-icons" />
-        </a>
+        <div class="container-fluid footer">
+            <!--left-->
+            <div class="row">
+                <div class="col footer-left">
+                    <ul class="list-unstyled text-center">
+                        <li class="nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                            <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item {% if request.resolver_match.url_name == 'about-us' %}active{% endif %}">
+                            <a class="nav-link" aria-current="page" href="{% url 'about-us' %}">About Us</a>
+                        </li>
+                        {% if request.user.is_authenticated %}
+                        <li class="nav-item {% if request.resolver_match.url_name == 'account_logout' %}active{% endif %}">
+                            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item {% if request.resolver_match.url_name == 'account_login' %}active{% endif %}">
+                            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                        </li>
+                        <li class="nav-item {% if request.resolver_match.url_name == 'account_signup' %}active{% endif %}">
+                            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <!--middle-->
+                <div class="col footer-middle">
+                    <ul class="list-unstyled text-center">
+                        <li><i class="fa-solid fa-location-dot"></i>   16 Saint, John's Lane, London, EC1M 4BS</li>
+                        <li><i class="fa-regular fa-envelope"></i>   cc1@charliecharlie1.com</li>
+                        <li><i class="fa-solid fa-phone"></i>   0208 000 1111</li>
+
+                    </ul>
+                </div>
+                <!--right-->
+                <div class="col ">
+                    <ul class="list-unstyled text-center">
+                        <li class="footer-right"><a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="link to our facebook page"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li class="footer-right"><a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="link to our instagram page"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li class="footer-right"><a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="link to our linked in page"><i class="fa-brands fa-linkedin"></i></a></li>
+                        <li class="footer-right"><a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="link to our twitter page"><i class="fa-brands fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
     </div>
 </footer>

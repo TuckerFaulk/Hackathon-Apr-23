@@ -1,16 +1,16 @@
 <header>
-    <nav class="navbar navbar-expand-md border-bottom bg-light-grey mb-2">
+    <!-- <nav class="navbar navbar-expand-md border-bottom bg-light-grey mb-2">
         <ul class="navbar-nav mb-2 mb-md-0 text-center mr-auto">
             <li class="nav-item mr-2">
-                <a class="nav-link nav-link-small color-green" href="">Meet Team 2</a>
+                <a class="nav-link nav-link-small color-green" href="https://hackathon.codeinstitute.net/teams/304/" target="_blank">Meet Team 2</a>
             </li>
         </ul>
         <div class="d-none d-md-block">
             {% include 'includes/top_header.html' %}
         </div>
-    </nav>
+    </nav> -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">CharlieCharlieOne</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -19,35 +19,42 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    <li class="nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item {% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
+                        <a class="nav-link" aria-current="page" href="{% url 'post_list' %}">Feed</a>
+                    </li>
+                    <li class="nav-item {% if request.resolver_match.url_name == 'about-us' %}active{% endif %}">
+                        <a class="nav-link" aria-current="page" href="{% url 'about-us' %}">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'post_list' %}">Posts</a>
                     </li>
                     {% if request.user.is_authenticated %}
-                    <li class="nav-item">
+                    <li class="nav-item {% if request.resolver_match.url_name == '/public_profile_list/' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'public_profile_list' %}">Find a Veteran</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {% if request.path == '/profile/' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'profile' %}">My Profile</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {% if request.resolver_match.url_name == '/public_profile/{{ user.userprofile.id }}/' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'public_profile' id=user.userprofile.id %}">My Public Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
-                    <li class="nav-item">
+                    <li class="nav-item {% if request.resolver_match.url_name == 'account_signup' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {% if request.resolver_match.url_name == 'account_login' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
             </div>
+            
         </div>
     </nav>
 
