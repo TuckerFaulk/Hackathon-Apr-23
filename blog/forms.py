@@ -1,4 +1,4 @@
-from .models import Author, Category, Post, Comment
+from .models import *
 from django import forms
 
 
@@ -14,7 +14,6 @@ class PostForm(forms.ModelForm):
     class Meta():
         model = Post
         fields = (
-            'author',
             'title',
             'excerpt',
             'content',
