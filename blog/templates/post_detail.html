@@ -84,6 +84,7 @@
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
+                    <a href="{% url 'comment_edit' comment.pk %}" class="btn btn-signup btn-lg">Edit</a>
                     <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
                 </div>

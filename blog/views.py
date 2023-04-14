@@ -109,6 +109,21 @@ class PostDetail(View):
         )
 
 
+class CommentEdit(UpdateView):
+    model = Comment
+    form_class = CommentForm
+    template_name = 'comment_edit.html'
+    success_url = reverse_lazy('post_list')
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get('pk')
+        return Comment.objects.get(pk=pk)
+
+    def form_valid(self, form):
+        form.instance.Author = self.request.user
+        return super().form_valid(form)
+
+
 class PostLike(View):
 
     def post(self, request, slug):
