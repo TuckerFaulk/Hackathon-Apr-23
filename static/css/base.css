@@ -13,7 +13,7 @@
 }
 
 .navbar {
-    background-color: #254e58 !important;
+    
     text-decoration: none !important;
     background-color: #89bdbb !important;
     text-decoration: none !important;   
@@ -48,21 +48,22 @@
     margin: 20px;
   }
 
-  .card {
+  .homepage-card {
     width: calc(20% - 10px);
     margin-bottom: 20px;
     text-align: center;
     position: relative;
     padding: 10px;
+    border: 1px rgba(128, 128, 128, 0.404) solid;
     
   }
 
-  .card img {
+  .homepage-card img {
     width: 100%;
     border-radius: 10px;
   }
 
-  .icon {
+  .homepage-icon {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -76,7 +77,7 @@
     justify-content: center;
   }
 
-  .icon i {
+  .homepage-icon i {
     font-size: 20px;
   }
 
@@ -88,7 +89,7 @@
   }
 
 
-  p {  
+  .homepage-p {  
   
     font-size: 14px;
     line-height: 1.5;
@@ -226,7 +227,7 @@
 }
 
 .footer, footer a {
-   background-color: #89bdbb;
+   background-color: #89bdbb !important;
    color: #fff;
    text-decoration: none;
 }
