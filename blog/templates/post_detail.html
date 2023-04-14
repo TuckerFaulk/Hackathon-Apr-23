@@ -33,7 +33,9 @@
                 <p class="card-text ">
                     {{ post.content | safe }}
                 </p>
+                {% if user.is_authenticated and post.author.id == user.id %}
                     <a href="{% url 'post_edit' slug=post.slug %}" class="btn btn-signup btn-lg">Edit</a>
+                {% endif %}
                 <div class="row">
                     <div class="col-1">
                         <strong>
@@ -84,6 +86,9 @@
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
+                    {% if user.is_authenticated and comment.name.id == user.username.id %}
+                    <a href="{% url 'comment_edit' comment.pk %}" class="btn btn-signup btn-lg">Edit</a>
+                    {% endif %}
                     <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
                 </div>
