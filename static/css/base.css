@@ -25,11 +25,13 @@
 
 .nav-link {
     color: #fff !important;
-    font-size: 1.25rem;
+    font-size: 0.75rem;
     border-bottom: 1px solid #89bdbb;
-    
 }
 
+.navbar-nav li {
+    padding: 0 5px;
+}
 .active {
     border-bottom: 1px solid #fff;
 }
@@ -39,6 +41,8 @@
 }
 
 /* SERVICES OVERVIEW SECTION - HOME PAGE */
+
+
 
 .picture-grid {
     display: flex;
@@ -155,12 +159,31 @@
 
 /* CAROUSEL */
 
-.carousel-item {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+#carousel-container {
+    max-width: 500px ;
+    margin: 50px auto ;
 }
 
+
+#carouselExampleIndicators {
+    text-align: center !important;
+    margin: 50px auto ;
+}
+
+
+.carousel-item img {
+    max-height: 500px !important;
+    max-width: 500px !important;
+    color: rgb(0, 0, 0);
+    
+}
+
+.carousel-caption h5 {
+    color: rgb(0, 0, 0);
+    max-height: 500px !important;
+    max-width: 500px !important;
+    background-color: #f8f9fae8;
+}
 
 
 /* HERO IMAGE AND COVER TEXT - HOME PAGE */
