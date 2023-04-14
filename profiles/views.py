@@ -1,15 +1,23 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.auth.models import User
 from .forms import UserProfileForm
-from .models import UserProfile
+from .models import UserProfile, FollowList
 from django.db.models import Q
+from django.http import HttpResponseBadRequest
+from django.views.decorators.http import require_POST
 
 
 @login_required
 def profile(request):
     """View for displaying and updating user profile"""
     profile = request.user.userprofile
+    followed_users = (
+        FollowList.objects.filter(user=request.user).select_related('followed_user')
+    )
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
@@ -29,6 +37,7 @@ def profile(request):
     context = {
         'form': form,
         'profile': profile,
+        'followed_users': followed_users,
     }
     return render(request, template, context)
 
@@ -43,10 +52,13 @@ def public_profile(request, id):
             if getattr(user_profile, field.name):
                 public_fields.append(field.name.replace('is_', ''))
 
+    current_user_profile = request.user.userprofile
+
     template = 'profiles/public_profile.html'
     context = {
         'user_profile': user_profile,
-        'public_fields': public_fields
+        'public_fields': public_fields,
+        'current_user_profile': current_user_profile,
     }
     return render(request, template, context)
 
@@ -121,3 +133,76 @@ def public_profile_search(request):
     }
 
     return render(request, 'profiles/public_profile_list.html', context)
+
+
+def followlist(request):
+    """ A view to show the user's followlist """
+    if not request.user.is_authenticated:
+        messages.error(
+            request,
+            'Sorry, you need to be logged in to add your FollowList.'
+        )
+        return redirect(reverse('account_login'))
+
+    user = request.user
+    followed_users = (
+        FollowList.objects.filter(user=user).select_related('followed_user')
+    )
+    context = {
+        'followed_users': followed_users,
+    }
+    return render(request, 'profile.html', context)
+
+
+def add_to_follow(request, user_id):
+    """
+    A view to add other users to a user's follow list and prevent users from
+    adding users that are already in their follow list.
+    """
+    if not request.user.is_authenticated:
+        messages.error(
+            request,
+            'Sorry, you need to be logged in to follow other users.'
+        )
+        return redirect(reverse('account_login'))
+
+    user = get_object_or_404(User, id=user_id)
+    followed_user = get_object_or_404(UserProfile, user=user)
+
+    # Check if the user is already in the follow list
+    existing = FollowList.objects.filter(followed_user=followed_user,
+                                         user=request.user).exists()
+
+    if existing:
+        messages.info(
+            request,
+            f'{followed_user.preferred_display_name} is already in your list.'
+        )
+    else:
+        follow_user = FollowList.objects.create(followed_user=followed_user,
+                                                user=request.user)
+        messages.success(
+            request,
+            f'{followed_user.preferred_display_name} is added to your list.'
+        )
+
+    return redirect(reverse('public_profile', args=[followed_user.id]))
+
+
+def remove_from_follow_list(request, user_id):
+    """ A view to remove public_profile from followlist """
+    if not request.user.is_authenticated:
+        messages.error(request,
+                       'Sorry, you need to be logged in to add your List.')
+        return redirect(reverse('account_login'))
+
+    user = get_object_or_404(UserProfile, user=request.user)
+    public_profile = get_object_or_404(UserProfile, pk=UserProfile.id)
+    FollowList.objects.filter(UserProfile=UserProfile,
+                              user_profile=user).delete()
+    messages.info(
+        request,
+        f'{user_profile.preferred_display_name} was removed from your Wishlist'
+    )
+
+    return redirect(reverse('public_profile', args=[public_profile.id]))

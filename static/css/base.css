@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@700&family=Lato:wght@300;400&family=Poppins:wght@300;400&display=swap');
 
-/* testing styling */
-.red-font {
-    color: red;
-}
-
 /* NAVBAR */
 .navbar-brand {
     background-image: url('https://res.cloudinary.com/dzqdaqlba/image/upload/v1681463794/Hackathon%20London/cropped-logo_c4klcr.png');
@@ -18,6 +13,8 @@
 }
 
 .navbar {
+    background-color: #254e58 !important;
+    text-decoration: none !important;
     background-color: #89bdbb !important;
     text-decoration: none !important;   
     padding-right: 5%;
@@ -46,7 +43,7 @@
     justify-content: space-between;
     margin: 20px;
   }
-  
+
   .card {
     width: calc(20% - 10px);
     margin-bottom: 20px;
@@ -55,12 +52,12 @@
     padding: 10px;
     
   }
-  
+
   .card img {
     width: 100%;
     border-radius: 10px;
   }
-  
+
   .icon {
     position: absolute;
     bottom: 0;
@@ -74,18 +71,20 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   .icon i {
     font-size: 20px;
   }
-  
+
   h4 {
     margin-top: 10px;
     height: 50px;
     font-size: 18px;
     font-weight: bold;
   }
-  
+
+
+  p {  
   .card > p {
     font-size: 14px;
     line-height: 1.5;
@@ -94,8 +93,8 @@
     height: 75px;
   }
 
-  /* pictures */ 
-  
+  /* pictures */
+
 .picture1 {
     background-image: url('https://res.cloudinary.com/dzqdaqlba/image/upload/v1681406937/Hackathon%20London/community1_cbuqfe.webp');
     object-fit: cover;
@@ -182,7 +181,7 @@
     width: 80%;
     font-size: 2rem;
     text-align: center;
-    color:#2f4858; 
+    color:#2f4858;
 }
 
 #cover-text h2 {
@@ -197,7 +196,7 @@
 }
 
 
-/* FOOTER SECTION */ 
+/* FOOTER SECTION */
 .nav-item {
     display: inline-flex;
     color: #fff;
@@ -206,7 +205,7 @@
 .footer, footer a {
    background-color: #89bdbb;
    color: #fff;
-   text-decoration: none;   
+   text-decoration: none;
 }
 
 .footer a:hover {

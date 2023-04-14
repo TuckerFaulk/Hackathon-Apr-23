@@ -28,6 +28,9 @@
                     <li class="nav-item {% if request.resolver_match.url_name == 'about-us' %}active{% endif %}">
                         <a class="nav-link" aria-current="page" href="{% url 'about-us' %}">About Us</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'post_list' %}">Posts</a>
+                    </li>
                     {% if request.user.is_authenticated %}
                     <li class="nav-item {% if request.resolver_match.url_name == '/public_profile_list/' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'public_profile_list' %}">Find a Veteran</a>

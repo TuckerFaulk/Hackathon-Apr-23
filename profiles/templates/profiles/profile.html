@@ -3,7 +3,7 @@
 {% load custom_filters %}
 
 {% block content %}
-    <h1 class="text-center mt-5">Edit Profile</h1>
+    <h1 class="text-center mt-5">Edit Your Private Profile</h1>
     <div class="mx-5 mb-5">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
@@ -122,5 +122,50 @@
             <button type="submit" class="btn btn-primary mt-3">Save</button>
         </form>
     </div>
+
+    <!-- LISTS OF PROFILES THE USER IS FOLLOWING -->
+    <div class="container mt-5">
+        {% if followed_users %}
+            <h3>Users you are following:</h3>
+            <ul>
+                {% for followed_user in followed_users %}
+                    <li>
+                        <a href="{% url 'public_profile' followed_user.followed_user.id %}">
+                            {{ followed_user.followed_user.preferred_display_name }}
+                        </a>
+                        {% if followed_user.followed_user.is_fullname %}
+                            <br>{{ followed_user.followed_user.fullname }}
+                        {% endif %}
+                        {% if followed_user.followed_user.is_user_email %}
+                            <br>{{ followed_user.followed_user.user_email }}
+                        {% endif %}
+                        {% if followed_user.followed_user.is_user_phone %}
+                            <br>{{ followed_user.followed_user.user_phone }}
+                        {% endif %}
+                        {% if followed_user.followed_user.is_linkedin %}
+                            <br>{{ followed_user.followed_user.linkedin }}
+                        {% endif %}
+                        {% if followed_user.followed_user.is_rank %}
+                            <br>{{ followed_user.followed_user.rank }}
+                        {% endif %}
+                        {% if followed_user.followed_user.is_branch_of_military_served %}
+                            <br>{{ followed_user.followed_user.get_branch_of_military_served_display }}
+                        {% endif %}
+                        {% if followed_user.followed_user.is_length_of_service %}
+                            <br>{{ followed_user.followed_user.length_of_service }}
+                        {% endif %}
+                        {% if followed_user.followed_user.is_past_deployments %}
+                            <br>{{ followed_user.followed_user.past_deployments }}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You are not following any users yet.</p>
+        {% endif %}
+
+    </div>
+
+
 
 {% endblock %}
