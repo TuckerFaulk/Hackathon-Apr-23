@@ -125,11 +125,11 @@
 
     <!-- LISTS OF PROFILES THE USER IS FOLLOWING -->
     <div class="container mt-5">
+        <h3>Other Veterans you are following:</h3>
         {% if followed_users %}
-            <h3>Users you are following:</h3>
-            <ul>
+            <div>
                 {% for followed_user in followed_users %}
-                    <li>
+                    <div>
                         <a href="{% url 'public_profile' followed_user.followed_user.id %}">
                             {{ followed_user.followed_user.preferred_display_name }}
                         </a>
@@ -157,15 +157,18 @@
                         {% if followed_user.followed_user.is_past_deployments %}
                             <br>{{ followed_user.followed_user.past_deployments }}
                         {% endif %}
-                    </li>
+                        <form method="post" action="{% url 'remove_from_follow_list' followed_user.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="follow_id" value="{{ followed_user.id }}">
+                            <button type="submit" class="btn btn-primary">Unfollow</button>
+                        </form>
+                    </div>
                 {% endfor %}
-            </ul>
+            </div>
+
         {% else %}
             <p>You are not following any users yet.</p>
         {% endif %}
-
     </div>
-
-
 
 {% endblock %}

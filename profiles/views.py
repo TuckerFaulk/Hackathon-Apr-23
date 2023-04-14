@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import Http404
 from django.urls import reverse
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -189,20 +190,26 @@ def add_to_follow(request, user_id):
     return redirect(reverse('public_profile', args=[followed_user.id]))
 
 
-def remove_from_follow_list(request, user_id):
-    """ A view to remove public_profile from followlist """
+def remove_from_follow_list(request, follow_id):
+    """ A view to remove a public_profile from the follow list """
     if not request.user.is_authenticated:
-        messages.error(request,
-                       'Sorry, you need to be logged in to add your List.')
+        messages.error(
+            request,
+            'Sorry, you need to be logged in to edit your FollowList.'
+        )
         return redirect(reverse('account_login'))
 
-    user = get_object_or_404(UserProfile, user=request.user)
-    public_profile = get_object_or_404(UserProfile, pk=UserProfile.id)
-    FollowList.objects.filter(UserProfile=UserProfile,
-                              user_profile=user).delete()
-    messages.info(
-        request,
-        f'{user_profile.preferred_display_name} was removed from your Wishlist'
+    follow_list_item = get_object_or_404(
+        FollowList, id=follow_id, user=request.user
     )
+    followed_user = follow_list_item.followed_user
 
-    return redirect(reverse('public_profile', args=[public_profile.id]))
+    if request.method == 'POST':
+        follow_list_item.delete()
+        messages.success(
+            request,
+            f'You have unfollowed {followed_user.preferred_display_name}.'
+        )
+        return redirect('profile')
+
+    return redirect('profile')
