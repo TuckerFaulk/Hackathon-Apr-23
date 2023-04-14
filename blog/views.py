@@ -28,7 +28,7 @@ class PostList(generic.ListView, ModelFormMixin):
 
         if self.form.is_valid():
             self.object = self.form.save(commit=False)
-            self.form_class.Author = request.user
+            self.form_class.Author = request.user.username
             self.form.save()
             self.form = self.get_form(self.form_class)
 
@@ -51,7 +51,7 @@ class PostEdit(UpdateView):
         return Post.objects.get(slug=slug)
 
     def form_valid(self, form):
-        form.instance.Author = self.request.user
+        form.instance.Author = self.request.user.username
         return super().form_valid(form)
 
 
@@ -120,7 +120,7 @@ class CommentEdit(UpdateView):
         return Comment.objects.get(pk=pk)
 
     def form_valid(self, form):
-        form.instance.Author = self.request.user
+        form.instance.Author = self.request.user.username
         return super().form_valid(form)
 
 
