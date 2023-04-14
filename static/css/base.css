@@ -364,3 +364,23 @@
     position: relative;
     bottom: 10px;
 }
+
+/* Following Profile Cards */
+
+.following-card {
+    border: 1px rgb(85, 84, 84) solid;
+    border-radius: 50px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.following-img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.btn-unfollow {
+    display: inline;
+}

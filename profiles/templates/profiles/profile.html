@@ -3,172 +3,190 @@
 {% load custom_filters %}
 
 {% block content %}
-    <h1 class="text-center mt-5">Edit Your Private Profile</h1>
-    <div class="mx-5 mb-5">
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-
-            <!-- Preferred Display Name Field-->
-            <div class="form-group">
-                <label for="{{ form.preferred_display_name.id_for_label }}"><em>Preferred Display Name</em></label>
-                {{ form.preferred_display_name }}
-                <div class="form-check mt-2">
-                    {{ form.is_preferred_display_name|attr:"checked:user_profile.is_preferred_display_name" }}
-                    <label class="form-check-label" for="{{ form.is_preferred_display_name_public.id_for_label }}">Display publicly?</label>
-                </div>
-            </div>
-
-            <!-- Preferred Display Name Field-->
-            <div class="form-group">
-                <label for="{{ form.fullname.id_for_label }}">Full Name</label>
-                {{ form.fullname }}
-                <div class="form-check mt-2">
-                    {{ form.is_fullname|attr:"checked:user_profile.is_fullname" }}
-                    <label class="form-check-label" for="{{ form.is_fullname_public.id_for_label }}">Display publicly?</label>
-                </div>
-            </div>
-
-            <!-- Email Field -->
-            <div class="form-group">
-                <label for="{{ form.user_email.id_for_label }}">Email</label>
-                {{ form.user_email }}
-                <div class="form-check mt-2">
-                    {{ form.is_user_email|attr:"checked:user_profile.is_user_email" }}
-                    <label class="form-check-label" for="{{ form.is_user_email_public.id_for_label }}">Display publicly?</label>
-                </div>
-            </div>
-
-            <!-- Phone Number Field -->
-            <div class="form-group">
-                <label for="{{ form.user_phone.id_for_label }}">Phone Number</label>
-                {{ form.user_phone }}
-                <div class="form-check mt-2">
-                    {{ form.is_user_phone|attr:"checked:user_profile.is_user_phone" }}
-                    <label class="form-check-label" for="{{ form.is_user_phone_public.id_for_label }}">Display publicly?</label>
-                </div>
-            </div>
-
-            <!-- LinkedIn Field -->
-            <div class="form-group">
-                <label for="{{ form.linkedin.id_for_label }}">LinkedIn URL</label>
-                {{ form.linkedin }}
-                <div class="form-check mt-2">
-                    {{ form.is_linkedin|attr:"checked:user_profile.is_linkedin" }}
-                    <label class="form-check-label" for="{{ form.is_linkedin_public.id_for_label }}">Display publicly?</label>
-                </div>
-            </div>
-
-            <!-- Profile Picture Field -->
-            <div class="form-group">
-                <label for="{{ form.profile_picture.id_for_label }}">Profile Picture</label>
-                {{ form.profile_picture }}
-                <div class="form-check mt-2">
-                    {{ form.is_profile_picture|attr:"checked:user_profile.is_profile_picture" }}
-                    <label class="form-check-label" for="{{ form.is_profile_picture_public.id_for_label }}">Display publicly?</label>
-                </div>
-            </div>
-
-            <!-- About Me Field -->
-            <div class="form-group">
-                <label for="{{ form.about_me.id_for_label }}">About Me</label>
-                {{ form.about_me }}
-                <div class="form-check mt-2">
-                    {{ form.is_about_me|attr:"checked:user_profile.is_about_me" }}
-                    <label class="form-check-label" for="{{ form.is_about_me_public.id_for_label }}">Display publicly?</label>
-                </div>
-            </div>
-
-            <!-- Rank Field -->
-            <div class="form-group">
-                <label for="{{ form.rank.id_for_label }}">Rank</label>
-                {{ form.rank }}
-                <div class="form-check mt-2">
-                    {{ form.is_rank|attr:"checked:user_profile.is_rank" }}
-                    <label class="form-check-label" for="{{ form.is_rank_public.id_for_label }}">Display publicly?</label>
-                </div>
-            </div>
-
-            <!-- Branch of Military Served Field -->
-            <div class="form-group">
-                <label for="{{ form.branch_of_military_served.id_for_label }}">Branch of Military Served</label>
-                {{ form.branch_of_military_served }}
-                <div class="form-check mt-2">
-                    {{ form.is_branch_of_military_served|attr:"checked:user_profile.is_branch_of_military_served" }}
-                    <label class="form-check-label" for="{{ form.is_branch_of_military_served_public.id_for_label }}">Display publicly?</label>
-                </div>
-            </div>
-
-            <!-- Length of Service Field -->
-            <div class="form-group">
-                <label for="{{ form.length_of_service.id_for_label }}">Length of Service</label>
-                {{ form.length_of_service }}
-                <div class="form-check mt-2">
-                    {{ form.is_length_of_service|attr:"checked:user_profile.is_length_of_service" }}
-                    <label class="form-check-label" for="{{ form.is_length_of_service_public.id_for_label }}">Display publicly?</label>
-                </div>
-            </div>
-
-            <!-- Past Deployments Field -->
-            <div class="form-group">
-                <label for="{{ form.past_deployments.id_for_label }}">Past Deployments</label>
-                {{ form.past_deployments }}
-                <div class="form-check mt-2">
-                    {{ form.is_past_deployments|attr:"checked:user_profile.is_past_deployments" }}
-                    <label class="form-check-label" for="{{ form.is_past_deployments_public.id_for_label }}">Display publicly?</label>
-                </div>
-            </div>
-
-            <!-- SUBMIT BUTTON -->
-            <button type="submit" class="btn btn-primary mt-3">Save</button>
-        </form>
+<div class="container">
+    <div class="row">
+        <div class="col text-center mt-3">
+            <h1 class="">Edit Your Private Profile</h1>
+        </div>
     </div>
 
-    <!-- LISTS OF PROFILES THE USER IS FOLLOWING -->
-    <div class="container mt-5">
-        <h3>Other Veterans you are following:</h3>
-        {% if followed_users %}
-            <div>
-                {% for followed_user in followed_users %}
+    <div class="row mx-5 mb-5">
+        <div class="col-8 mt-5">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- Preferred Display Name Field-->
+                <div class="form-group">
+                    <label for="{{ form.preferred_display_name.id_for_label }}"><em>Preferred Display Name</em></label>
                     <div>
-                        <a href="{% url 'public_profile' followed_user.followed_user.id %}">
-                            {{ followed_user.followed_user.preferred_display_name }}
-                        </a>
-                        {% if followed_user.followed_user.is_fullname %}
-                            <br>{{ followed_user.followed_user.fullname }}
-                        {% endif %}
-                        {% if followed_user.followed_user.is_user_email %}
-                            <br>{{ followed_user.followed_user.user_email }}
-                        {% endif %}
-                        {% if followed_user.followed_user.is_user_phone %}
-                            <br>{{ followed_user.followed_user.user_phone }}
-                        {% endif %}
-                        {% if followed_user.followed_user.is_linkedin %}
-                            <br>{{ followed_user.followed_user.linkedin }}
-                        {% endif %}
-                        {% if followed_user.followed_user.is_rank %}
-                            <br>{{ followed_user.followed_user.rank }}
-                        {% endif %}
-                        {% if followed_user.followed_user.is_branch_of_military_served %}
-                            <br>{{ followed_user.followed_user.get_branch_of_military_served_display }}
-                        {% endif %}
-                        {% if followed_user.followed_user.is_length_of_service %}
-                            <br>{{ followed_user.followed_user.length_of_service }}
-                        {% endif %}
-                        {% if followed_user.followed_user.is_past_deployments %}
-                            <br>{{ followed_user.followed_user.past_deployments }}
-                        {% endif %}
-                        <form method="post" action="{% url 'remove_from_follow_list' followed_user.id %}">
-                            {% csrf_token %}
-                            <input type="hidden" name="follow_id" value="{{ followed_user.id }}">
-                            <button type="submit" class="btn btn-primary">Unfollow</button>
-                        </form>
+                        {{ form.preferred_display_name }}
+                        {{ form.is_preferred_display_name|attr:"checked:user_profile.is_preferred_display_name" }}
+                        <label class="form-check-label" for="{{ form.is_preferred_display_name_public.id_for_label }}">Display publicly?</label>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
 
-        {% else %}
-            <p>You are not following any users yet.</p>
-        {% endif %}
+                <!-- Preferred Display Name Field-->
+                <div class="form-group">
+                    <label for="{{ form.fullname.id_for_label }}">Full Name</label>
+                    <div>
+                        {{ form.fullname }}
+                        {{ form.is_fullname|attr:"checked:user_profile.is_fullname" }}
+                        <label class="form-check-label" for="{{ form.is_fullname_public.id_for_label }}">Display publicly?</label>
+                    </div>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="{{ form.user_email.id_for_label }}">Email</label>
+                    <div>
+                        {{ form.user_email }}
+                        {{ form.is_user_email|attr:"checked:user_profile.is_user_email" }}
+                        <label class="form-check-label" for="{{ form.is_user_email_public.id_for_label }}">Display publicly?</label>
+                    </div>
+                </div>
+
+                <!-- Phone Number Field -->
+                <div class="form-group">
+                    <label for="{{ form.user_phone.id_for_label }}">Phone Number</label>
+                    <div>
+                        {{ form.user_phone }}
+                        {{ form.is_user_phone|attr:"checked:user_profile.is_user_phone" }}
+                        <label class="form-check-label" for="{{ form.is_user_phone_public.id_for_label }}">Display publicly?</label>
+                    </div>
+                </div>
+
+                <!-- LinkedIn Field -->
+                <div class="form-group">
+                    <label for="{{ form.linkedin.id_for_label }}">LinkedIn URL</label>
+                    <div>
+                        {{ form.linkedin }}
+                        {{ form.is_linkedin|attr:"checked:user_profile.is_linkedin" }}
+                        <label class="form-check-label" for="{{ form.is_linkedin_public.id_for_label }}">Display publicly?</label>
+                    </div>
+                </div>
+
+                <!-- Profile Picture Field -->
+                <div class="form-group">
+                    <label for="{{ form.profile_picture.id_for_label }}">Profile Picture</label>
+                    <div>
+                        {{ form.profile_picture }}
+                        {{ form.is_profile_picture|attr:"checked:user_profile.is_profile_picture" }}
+                        <label class="form-check-label" for="{{ form.is_profile_picture_public.id_for_label }}">Display publicly?</label>
+                    </div>
+                </div>
+
+                <!-- About Me Field -->
+                <div class="form-group">
+                    <label for="{{ form.about_me.id_for_label }}">About Me</label>
+                    <div>
+                        {{ form.about_me }}
+                        {{ form.is_about_me|attr:"checked:user_profile.is_about_me" }}
+                        <label class="form-check-label" for="{{ form.is_about_me_public.id_for_label }}">Display publicly?</label>
+                    </div>
+                </div>
+
+                <!-- Rank Field -->
+                <div class="form-group">
+                    <label for="{{ form.rank.id_for_label }}">Rank</label>
+                    <div>
+                        {{ form.rank }}
+                        {{ form.is_rank|attr:"checked:user_profile.is_rank" }}
+                        <label class="form-check-label" for="{{ form.is_rank_public.id_for_label }}">Display publicly?</label>
+                    </div>
+                </div>
+
+                <!-- Branch of Military Served Field -->
+                <div class="form-group">
+                    <label for="{{ form.branch_of_military_served.id_for_label }}">Branch of Military Served</label>
+                    <div>
+                        {{ form.branch_of_military_served }}
+                        {{ form.is_branch_of_military_served|attr:"checked:user_profile.is_branch_of_military_served" }}
+                        <label class="form-check-label" for="{{ form.is_branch_of_military_served_public.id_for_label }}">Display publicly?</label>
+                    </div>
+                </div>
+
+                <!-- Length of Service Field -->
+                <div class="form-group">
+                    <label for="{{ form.length_of_service.id_for_label }}">Length of Service</label>
+                    <div>
+                        {{ form.length_of_service }}
+                        {{ form.is_length_of_service|attr:"checked:user_profile.is_length_of_service" }}
+                        <label class="form-check-label" for="{{ form.is_length_of_service_public.id_for_label }}">Display publicly?</label>
+                    </div>
+                </div>
+
+                <!-- Past Deployments Field -->
+                <div class="form-group">
+                    <label for="{{ form.past_deployments.id_for_label }}">Past Deployments</label>
+                    <div>
+                        {{ form.past_deployments }}
+                        {{ form.is_past_deployments|attr:"checked:user_profile.is_past_deployments" }}
+                        <label class="form-check-label" for="{{ form.is_past_deployments_public.id_for_label }}">Display publicly?</label>
+                    </div>
+                </div>
+
+                <!-- SUBMIT BUTTON -->
+                <button type="submit" class="btn btn-primary mt-3">Save</button>
+            </form>
+        </div>
+
+        <!-- LISTS OF PROFILES THE USER IS FOLLOWING -->
+        <div class="col-4 mt-5 text-center">
+            <h3>Other Veterans you are following:</h3>
+            {% if followed_users %}
+                <div>
+                    {% for followed_user in followed_users %}
+                        <div class="following-card">
+                            <span class="mr-5">
+                                {% if "placeholder" in followed_user.followed_user.profile_picture.url %}
+                                    <img src="https://res.cloudinary.com/dzqdaqlba/image/upload/v1681415640/Hackathon%20London/cc12_z22lt1.png" class="following-img" alt="{{ user_profile.preferred_display_name }}">
+                                {% else %}
+                                    <img src="{{ followed_user.followed_user.profile_picture.url }}" class="following-img"  alt="{{ followed_user.followed_user.preferred_display_name }}">
+                                {% endif %}
+                                <a href="{% url 'public_profile' followed_user.followed_user.id %}">
+                                    {{ followed_user.followed_user.preferred_display_name }}
+                                </a>
+                            </span>
+
+                            <form class="btn-unfollow" method="post" action="{% url 'remove_from_follow_list' followed_user.id %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="follow_id" value="{{ followed_user.id }}">
+                                <button type="submit" class="btn btn-primary">Unfollow</button>
+                            </form>
+
+                            <!-- {% if followed_user.followed_user.is_fullname %}
+                                <br>{{ followed_user.followed_user.fullname }}
+                            {% endif %}
+                            {% if followed_user.followed_user.is_user_email %}
+                                <br>{{ followed_user.followed_user.user_email }}
+                            {% endif %}
+                            {% if followed_user.followed_user.is_user_phone %}
+                                <br>{{ followed_user.followed_user.user_phone }}
+                            {% endif %}
+                            {% if followed_user.followed_user.is_linkedin %}
+                                <br>{{ followed_user.followed_user.linkedin }}
+                            {% endif %}
+                            {% if followed_user.followed_user.is_rank %}
+                                <br>{{ followed_user.followed_user.rank }}
+                            {% endif %}
+                            {% if followed_user.followed_user.is_branch_of_military_served %}
+                                <br>{{ followed_user.followed_user.get_branch_of_military_served_display }}
+                            {% endif %}
+                            {% if followed_user.followed_user.is_length_of_service %}
+                                <br>{{ followed_user.followed_user.length_of_service }}
+                            {% endif %}
+                            {% if followed_user.followed_user.is_past_deployments %}
+                                <br>{{ followed_user.followed_user.past_deployments }}
+                            {% endif %} -->
+                        </div>
+                    {% endfor %}
+                </div>
+
+            {% else %}
+                <p>You are not following any users yet.</p>
+            {% endif %}
+        </div>
     </div>
+</div>
 
 {% endblock %}

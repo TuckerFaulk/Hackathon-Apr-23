@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from profiles.models import UserProfile
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -9,23 +11,6 @@ STATUS = (
     (0, "Draft"),
     (1, "Published")
 )
-
-
-class Author(models.Model):
-    """
-    A model to create the Author
-    """
-    user = models.OneToOneField(
-        User,
-        on_delete=models.CASCADE
-        )
-    profile_picture = CloudinaryField(
-        "image",
-        default="placeholder"
-        )
-
-    def __str__(self):
-        return self.user.username
 
 
 class Category(models.Model):
@@ -37,11 +22,6 @@ class Category(models.Model):
         )
     subtitle = models.CharField(
         max_length=50
-        )
-    slug = models.SlugField()
-    thumbnail = CloudinaryField(
-        "image",
-        default="placeholder"
         )
 
     def __str__(self):
@@ -61,8 +41,9 @@ class Post(models.Model):
         auto_now=True
         )
     author = models.ForeignKey(
-        Author,
-        on_delete=models.CASCADE
+        UserProfile,
+        on_delete=models.CASCADE,
+        null=True
         )
     content = models.TextField()
     created_on = models.DateTimeField(
@@ -77,10 +58,12 @@ class Post(models.Model):
         )
     status = models.IntegerField(
         choices=STATUS,
-        default=1)
+        default=1
+        )
     likes = models.ManyToManyField(
-        User, related_name='blogpost_like', blank=True)
-    featured = models.BooleanField(default=False)
+        User, related_name='blogpost_like',
+        blank=True
+        )
 
     class Meta:
         ordering = ["-created_on"]
@@ -88,8 +71,16 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def author_name(self):
+        return self.UserProfile.preferred_display_name
+
     def number_of_likes(self):
         return self.likes.count()
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
 
 class Comment(models.Model):
@@ -101,8 +92,10 @@ class Comment(models.Model):
         on_delete=models.CASCADE,
         related_name="comments"
         )
-    name = models.CharField(
-        max_length=80
+    author = models.ForeignKey(
+        UserProfile,
+        on_delete=models.CASCADE,
+        null=True
         )
     email = models.EmailField()
     body = models.TextField()
@@ -117,4 +110,4 @@ class Comment(models.Model):
         ordering = ["created_on"]
 
     def __str__(self):
-        return f"Comment {self.body} by {self.name}"
+        return f"Comment {self.body} by {self.author}"
