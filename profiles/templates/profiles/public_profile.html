@@ -3,44 +3,34 @@
 
 {% block content %}
     <div class="container mx-auto">
-        {% if user_profile.preferred_display_name %}
-        <h1 class="red-font text-center">{{ user_profile.preferred_display_name }}</h1>
-        {% endif %}
-
-        {% if user_profile.profile_picture %}
-            <img src="{{ user_profile.profile_picture.url }}" alt="{{ user_profile.preferred_display_name }}">
-        {% endif %}
-
-        {% if user_profile.is_fullname %}
-        <div class="row">
-            <div class="col-sm-3 font-weight-bold red-font text-center">Full Name:</div>
-            <div class="col-sm-9">{{ user_profile.fullname }}</div>
+        
+        <div class="row mt-3">
+            <div class="col text-center">
+                {% if user_profile.preferred_display_name %}
+                <h1 class="text-center">{{ user_profile.preferred_display_name }}</h1>
+                {% endif %}
+            </div>
         </div>
-        {% endif %}
 
-        {% if user_profile.is_user_email %}
-            {% if user_profile.user_email %}
-                <p><strong>Email:</strong> {{ user_profile.user_email }}</p>
-            {% endif %}
-        {% endif %}
+        <div class="row mt-5">
+            <div class="col">
+                <div class="text-center mr-5">
+                    {% if "placeholder" in user_profile.profile_picture.url %}
+                        <img src="https://res.cloudinary.com/dzqdaqlba/image/upload/v1681415640/Hackathon%20London/cc12_z22lt1.png" class="pp-img" alt="{{ user_profile.preferred_display_name }}">
+                    {% else %}
+                        <img src="{{ user_profile.profile_picture.url }}" class="pp-img"  alt="{{ user_profile.preferred_display_name }}">
+                    {% endif %}
+                </div>
 
-        {% if user_profile.is_user_phone %}
-            {% if user_profile.user_phone %}
-                <p><strong>Phone:</strong> {{ user_profile.user_phone }}</p>
-            {% endif %}
-        {% endif %}
-
-        {% if user_profile.is_linkedin %}
-            {% if user_profile.linkedin %}
-                <p><strong>LinkedIn:</strong> {{ user_profile.linkedin }}</p>
-            {% endif %}
-        {% endif %}
-
-        {% if user_profile.is_about_me %}
-            {% if user_profile.about_me %}
-                <p><strong>About Me:</strong> {{ user_profile.about_me|safe }}</p>
-            {% endif %}
-        {% endif %}
+                    {% if user_profile.is_about_me %}
+                        {% if user_profile.about_me %}
+                        <div id="about-me" class="mt-4 ml-5">
+                            <p id="about-me-title"><strong>About Me:</strong></p>
+                            <p id="about-me-content">{{ user_profile.about_me|safe }}</p>
+                        </div>
+                        {% endif %}
+                    {% endif %}
+            </div>
 
         {% if user_profile.is_rank %}
             {% if user_profile.rank %}
@@ -84,6 +74,56 @@
                 </form>
             {% endif %}
         {% endif %}
+            <div class="col mt-5 ml-4">
+                {% if user_profile.is_fullname %}
+                    <p><strong>Full Name:</strong> {{ user_profile.fullname }}</p>
+                {% endif %}
+        
+                {% if user_profile.is_user_email %}
+                    {% if user_profile.user_email %}
+                        <p><strong>Email:</strong> {{ user_profile.user_email }}</p>
+                    {% endif %}
+                {% endif %}
+        
+                {% if user_profile.is_user_phone %}
+                    {% if user_profile.user_phone %}
+                        <p><strong>Phone:</strong> {{ user_profile.user_phone }}</p>
+                    {% endif %}
+                {% endif %}
+        
+                {% if user_profile.is_linkedin %}
+                    {% if user_profile.linkedin %}
+                        <p><strong>LinkedIn:</strong> {{ user_profile.linkedin }}</p>
+                    {% endif %}
+                {% endif %}
+        
+
+        
+                {% if user_profile.is_rank %}
+                    {% if user_profile.rank %}
+                        <p><strong>Rank:</strong> {{ user_profile.rank }}</p>
+                    {% endif %}
+                {% endif %}
+        
+                {% if user_profile.is_branch_of_military_served %}
+                    {% if user_profile.branch_of_military_served %}
+                        <p><strong>Branch of Military Served:</strong> {{ user_profile.get_branch_of_military_served_display }}</p>
+                    {% endif %}
+                {% endif %}
+        
+                {% if user_profile.is_length_of_service %}
+                    {% if user_profile.length_of_service %}
+                        <p><strong>Length of Service:</strong> {{ user_profile.length_of_service }}</p>
+                    {% endif %}
+                {% endif %}
+        
+                {% if user_profile.is_past_deployments %}
+                    {% if user_profile.past_deployments %}
+                        <p><strong>Past Deployments:</strong> {{ user_profile.past_deployments|safe }}</p>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
     </div>
 
 

@@ -80,7 +80,7 @@ class Post(models.Model):
         default=0)
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
-    featured = models.BooleanField()
+    featured = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["-created_on"]

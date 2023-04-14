@@ -68,7 +68,11 @@
         {% for profile in queryset %}
         <div class="col-md-4">
         <div class="card mb-4">
+            {% if "placeholder" in profile.profile_picture.url %}
+            <img src="https://res.cloudinary.com/dzqdaqlba/image/upload/v1681415640/Hackathon%20London/cc12_z22lt1.png" class="card-img-top" alt="{{ profile.preferred_display_name }}">
+            {% else %}
             <img src="{{ profile.profile_picture.url }}" class="card-img-top" alt="{{ profile.preferred_display_name }}">
+            {% endif %}
             <div class="card-body">
             <h5 class="card-title">{{ profile.preferred_display_name }}</h5>
             <p class="card-text">{{ profile.about_me }}</p>
