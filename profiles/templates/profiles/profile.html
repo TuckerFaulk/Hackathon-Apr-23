@@ -127,9 +127,9 @@
     <div class="container mt-5">
         <h3>Other Veterans you are following:</h3>
         {% if followed_users %}
-            <ul>
+            <div>
                 {% for followed_user in followed_users %}
-                    <li>
+                    <div>
                         <a href="{% url 'public_profile' followed_user.followed_user.id %}">
                             {{ followed_user.followed_user.preferred_display_name }}
                         </a>
@@ -157,29 +157,13 @@
                         {% if followed_user.followed_user.is_past_deployments %}
                             <br>{{ followed_user.followed_user.past_deployments }}
                         {% endif %}
-                    </li>
-                    <div>
-
+                        <form method="post" action="{% url 'remove_from_follow_list' followed_user.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="follow_id" value="{{ followed_user.id }}">
+                            <button type="submit" class="btn btn-primary">Unfollow</button>
+                        </form>
                     </div>
                 {% endfor %}
-            </ul>
-
-            <div>
-                {% for follow in followed_users %}
-                    <div class="card mt-3">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ follow.followed_user.username }}</h5>
-                            <form method="post" action="{% url 'remove_from_follow_list' follow.id %}">
-                                {% csrf_token %}
-                                <input type="hidden" name="follow_id" value="{{ follow.id }}">
-                                <button type="submit" class="btn btn-primary">Unfollow</button>
-                            </form>
-                        </div>
-                    </div>
-                {% endfor %}
-
-
-
             </div>
 
         {% else %}
