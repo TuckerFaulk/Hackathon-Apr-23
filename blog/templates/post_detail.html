@@ -33,6 +33,7 @@
                 <p class="card-text ">
                     {{ post.content | safe }}
                 </p>
+                    <a href="{% url 'post_edit' slug=post.slug %}" class="btn btn-signup btn-lg">Edit</a>
                 <div class="row">
                     <div class="col-1">
                         <strong>
