@@ -32,6 +32,48 @@
                     {% endif %}
             </div>
 
+        {% if user_profile.is_rank %}
+            {% if user_profile.rank %}
+                <p><strong>Rank:</strong> {{ user_profile.rank }}</p>
+            {% endif %}
+        {% endif %}
+
+        {% if user_profile.is_branch_of_military_served %}
+            {% if user_profile.branch_of_military_served %}
+                <p><strong>Branch of Military Served:</strong> {{ user_profile.get_branch_of_military_served_display }}</p>
+            {% endif %}
+        {% endif %}
+
+        {% if user_profile.is_length_of_service %}
+            {% if user_profile.length_of_service %}
+                <p><strong>Length of Service:</strong> {{ user_profile.length_of_service }}</p>
+            {% endif %}
+        {% endif %}
+
+        {% if user_profile.is_past_deployments %}
+            {% if user_profile.past_deployments %}
+                <p><strong>Past Deployments:</strong> {{ user_profile.past_deployments|safe }}</p>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <!-- FOLLOW OTHER USERS FUNCTIONALITY -->
+    <div>
+        {% if user.is_authenticated and user_profile.user != user %}
+            {% if is_following %}
+                <form id="unfollow-form" action="{% url 'remove_from_follow_list' user_profile.user.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-secondary" id="unfollow-btn">Unfollow</button>
+                    <input type="hidden" name="user_id" value="{{ user_profile.user.id }}">
+                </form>
+            {% else %}
+                <form id="follow-form" action="{% url 'add_to_follow' user_profile.user.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary" id="follow-btn">Follow</button>
+                    <input type="hidden" name="user_id" value="{{ user_profile.user.id }}">
+                </form>
+            {% endif %}
+        {% endif %}
             <div class="col mt-5 ml-4">
                 {% if user_profile.is_fullname %}
                     <p><strong>Full Name:</strong> {{ user_profile.fullname }}</p>
@@ -83,5 +125,6 @@
             </div>
         </div>
     </div>
+
 
 {% endblock %}

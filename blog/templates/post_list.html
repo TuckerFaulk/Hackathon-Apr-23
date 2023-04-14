@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
 {% load crispy_forms_tags %}
 
@@ -55,10 +56,10 @@
     </nav>
     {% endif %}
 </div>
+{% if user.is_authenticated %}
 <div class="col-md-4 card mb-4  mt-3 ">
     <div class="card-body">
         <!-- For later -->
-        {% if user.is_authenticated %}
         <h3>Leave a Post:</h3>
         <p>Posting as: {{ user.username }}</p>
         <form method="post" style="margin-top: 1.3em;">
@@ -66,7 +67,7 @@
             {% csrf_token %}
             <button type="submit" class="btn btn-signup btn-lg">Submit</button>
         </form>
-        {% endif %}
     </div>
 </div>
+{% endif %}
 {% endblock content %}
