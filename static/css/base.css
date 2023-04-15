@@ -604,7 +604,11 @@
     justify-content: center;
     flex-wrap: wrap;
     gap:2rem;
-    width:clamp(10rem, 90vw, 80rem);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 .contributor-profile {
@@ -625,8 +629,6 @@
     gap:2rem;
 }
 
-
-
 .contributor-links a i {
     color:black;
     font-size:2.5rem;
@@ -638,15 +640,41 @@
 }
 
 .contributor-profile:nth-child(1) img {
-    transition: 0.5s;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
 }
 
 .contributor-profile:nth-child(1) img:hover {
-    transition: 0.5s;
-    transform:rotate(180deg);
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
 }
 
-/* Not samars bouncing profile picture */
+.contributor-profile:nth-child(2) img {
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.contributor-profile:nth-child(2) img:hover {
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+}
+
+.contributor-profile:nth-child(3) img {
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.contributor-profile:nth-child(3) img:hover {
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+}
+
 .contributor-profile:nth-child(4) img {
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
@@ -654,6 +682,54 @@
 }
 
 .contributor-profile:nth-child(4) img:hover {
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+}
+
+.contributor-profile:nth-child(5) img {
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.contributor-profile:nth-child(5) img:hover {
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+}
+
+.contributor-profile:nth-child(6) img {
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.contributor-profile:nth-child(6) img:hover {
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+}
+
+.contributor-profile:nth-child(7) img {
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.contributor-profile:nth-child(7) img:hover {
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+}
+
+.contributor-profile:nth-child(8) img {
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.contributor-profile:nth-child(8) img:hover {
     animation-name: bounce;
     animation-duration: 0.5s;
     animation-timing-function: ease-out;
@@ -677,6 +753,7 @@
     }
   }
 
+<<<<<<< HEAD
 /* this definetly isn't the animation that makes one profile picture spin out of the screen when clicked... */
 @keyframes profile-madness  {
     0% {
@@ -738,3 +815,5 @@
     border: 1px rgb(85, 84, 84) solid;
 }
 
+=======
+>>>>>>> 2830b0f (add animation to about us profile imgs)
