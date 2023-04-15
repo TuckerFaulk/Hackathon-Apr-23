@@ -15,41 +15,13 @@ Charlee Charlee One is Team 2's Stamp Out The Stigma project submission for Code
 **TABLE OF CONTENTS**
 * [USER EXPERIENCE](#user-experience)
     * [Strategy Plane](#strategy-plane)
-        * [Project Goals](#project-goals)
-            * [Problems We Are Trying to Solve](#problems-we-are-trying-to-solve)
-            * [Product Goals](#product-goals)
-            * [User Research](#user-research)
-                * [Discovery Phase](#discovery-phase)
-                * [Product Launch - Alpha Testing](#product-launch---alpha-testing)
-                * [Product Launch - Beta Testing](#product-launch---beta-testing)
     * [Scope Plane](#scope-plane)
         * [Feature Planning](#feature-planning)
-        * [Content Requirement Planning](#content-requirement-planning)
-            * [Content Type: Text](#content-type-text)
-            * [Content Type: Images](#content-type-images)
-            * [Content Type: Videos](#content-type-videos)
-            * [Integrating Content Strategy and SEO](#integrating-content-strategy-and-seo)
         * [User Stories](#user-stories)
-    * [Structure Plane](#structure-plane)
-        * [Interaction Design](#interaction-design)
-            * [User Flow Diagram](#user-flow-diagram)
-        * [Information Architecture](#information-architecture)
-            * [Site Map](#site-map)
-        <!-- DATABASES CONTENT, IF APPLICABLE -->
+    * [Structure Plane](#structure-plane)>
         * [Database Design](#database-design)
             * [Database ERD](#database-erd)
             * [Data Modelling](#data-modelling)
-                * [User Model](#user-model)
-                * [UserProfile](#userprofile-model)
-                * [MainCategory Model](#maincategory-model)
-                * [Category Model](#category-model)
-                * [Subcategory Model](#subcategory-model)
-                * [Brand Model](#brand-model)
-                * [Product Model](#product-model)
-                * [Order Model](#order-model)
-                * [OrderLineItem Model](#orderlineitem-model)
-                * [Review Model](#review-model)
-                * [Wishlist Model](#wishlist-model)
     * [Skeleton Plane](#skeleton-plane)
         * [Wireframes](#wireframes)
         * [Colour Palette](#colour-paletteframes)
@@ -164,8 +136,6 @@ Charlie Charlie One provides:
 
 # Future Development, Iteration and Implementation
 
-
-
 # Technologies Used
 ## Languages Used
 * [HTML5](https://en.wikipedia.org/wiki/HTML5) Used for the content and structure of the site.
@@ -192,6 +162,10 @@ Charlie Charlie One provides:
 * [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/)  - Used to test responsiveness and debug.
 * [Cloudinary](https://cloudinary.com/)  - Used to add images in the cloud.
 
+## Testing, Bugs & Solutions
+
+* Known Bugs
+    * Validation error on Profile template. - Priority to be fixed in next sprint
 
 ### Acknowledgments
     Thank you to the Code Institute Hack Team who organised this Hackathon.
