@@ -16,7 +16,7 @@
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://res.cloudinary.com/dzqdaqlba/image/upload/v1681406934/Hackathon%20London/sailor-view_ev3ny3.webp">
+                                    src="https://res.cloudinary.com/dzqdaqlba/image/upload/v1681406934/Hackathon%20London/sailor-view_ev3ny3.webp" alt="blog_image">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}">
                                 {% endif %}
@@ -28,7 +28,7 @@
                                 <h2 class="card-title">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
-                            <hr />
+                            <hr>
                             <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-heart"></i>
                                 {{ post.number_of_likes }}</p>
                         </div>
