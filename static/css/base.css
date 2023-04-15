@@ -724,3 +724,17 @@
     border: 1px lightgray solid;
 }
 
+
+.user-tag {
+    color: #007bff;
+}
+
+.find-vet-img {
+    height: 300px;
+    object-fit: cover;
+}
+
+.reply-message-box {
+    border: 1px rgb(85, 84, 84) solid;
+}
+

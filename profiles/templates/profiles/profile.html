@@ -9,7 +9,7 @@
             <h1 class="">Edit Your Private Profile</h1>
         </div>
         <div class="col row d-flex justify-content-center align-items-center mt-3">
-            <a href="{% url 'messaging:inbox' %}" class="btn btn-primary">View Messages</a>
+            <a href="{% url 'messaging:inbox' %}" class="btn">View Messages</a>
         </div>
     </div>
 
@@ -146,7 +146,7 @@
                                 {% else %}
                                     <img src="{{ followed_user.followed_user.profile_picture.url }}" class="following-img"  alt="{{ followed_user.followed_user.preferred_display_name }}">
                                 {% endif %}
-                                <a href="{% url 'public_profile' followed_user.followed_user.id %}">
+                                <a href="{% url 'public_profile' followed_user.followed_user.id %}" class="user-tag">
                                     {{ followed_user.followed_user.preferred_display_name }}
                                 </a>
                             </span>
