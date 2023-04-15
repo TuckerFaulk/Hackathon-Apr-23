@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class="mb-4">Compose message to {{ recipient.username }}</h1>
+  <div class="container mt-3">
+    <h1 class=" text-center mb-4">Compose A Message To {{ recipient.username }}</h1>
     <form method="post" class="needs-validation" novalidate>
         {% csrf_token %}
         {{ form|crispy }}
         <button type="submit" class="btn btn-primary mt-3">Send</button>
     </form>
+  </div>
 {% endblock %}
 
 {% block scripts %}

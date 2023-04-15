@@ -7,7 +7,7 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
+        <div class="col-8 mt-3 left">
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
@@ -16,12 +16,12 @@
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                    src="https://res.cloudinary.com/dzqdaqlba/image/upload/v1681406934/Hackathon%20London/sailor-view_ev3ny3.webp">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}">
                                 {% endif %}
                                 <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
+                                    <p class="author">Author: {{ post.author.preferred_display_name }}</p>
                                 </div>
                             </div>
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
@@ -41,6 +41,23 @@
                 {% endfor %}
             </div>
         </div>
+
+        <div class="col-4">
+            {% if user.is_authenticated %}
+            <div class="container-fluid">
+                <div class="card-body">
+                    <!-- For later -->
+                    <h3>Leave a Post:</h3>
+                    <p>Posting as: {{ user.username }}</p>
+                    <form method="post" style="margin-top: 1.3em;">
+                        {{ post_form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    </form>
+                </div>
+            </div>
+            {% endif %}
+        </div>
     </div>
     {% if is_paginated %}
     <nav aria-label="Page navigation">
@@ -56,22 +73,5 @@
     </nav>
     {% endif %}
 </div>
-{% if user.is_authenticated %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-4 card mb-4  mt-3 ">
-            <div class="card-body">
-                <!-- For later -->
-                <h3>Leave a Post:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;">
-                    {{ post_form | crispy }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-{% endif %}
+
 {% endblock content %}

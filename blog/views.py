@@ -4,6 +4,8 @@ from django.views import generic, View
 from django.views.generic.edit import UpdateView
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import ModelFormMixin
+from cloudinary.uploader import upload
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 from .models import *
 from .forms import CommentForm, PostForm
 
@@ -29,6 +31,10 @@ class PostList(generic.ListView, ModelFormMixin):
         if self.form.is_valid():
             self.object = self.form.save(commit=False)
             self.form_class.Author = request.user.username
+            image = self.request.FILES.get('image')
+            if image:
+                result = cloudinary.uploader.upload(image)
+                self.object.image_url = result.get('url')
             self.form.save()
             self.form = self.get_form(self.form_class)
 
