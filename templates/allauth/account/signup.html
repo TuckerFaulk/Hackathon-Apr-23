@@ -11,7 +11,7 @@
     <div class="col-8 mt-5 offset-md-2">
       <h3>{% trans "Sign Up" %}</h3>
 
-      <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
+      <p>{% blocktrans %}Already have an account? Then please <a class="user-tag" href="{{ login_url }}">sign in</a>.{% endblocktrans %}
       </p>
 
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
