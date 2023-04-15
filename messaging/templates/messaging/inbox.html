@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class="mb-4">Inbox</h1>
+<div class="container">
+    <h1 class="text-center mt-3 mb-4">Inbox</h1>
     <table class="table">
-        <thead>
+        <thead class="text-center">
             <tr>
                 <th>Sender</th>
                 <th>Subject</th>
@@ -11,7 +12,7 @@
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
             {% for message in messages %}
             <tr{% if not message.read %} class="font-weight-bold" {% endif %}>
                 <td>{{ message.sender.username }}</td>
@@ -26,4 +27,5 @@
                 {% endfor %}
         </tbody>
     </table>
+</div>
 {% endblock %}
