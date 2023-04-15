@@ -317,7 +317,8 @@
 }
 
 .gallery-image img {
-    width: 100%;
+    width: 80%;
+    height: 80%;
     padding: 10px;
 }
 
@@ -417,11 +418,15 @@
 
     .gallery-image {
         flex-basis: 40%;
+        width: 80%;
+        height: 80%;
     }
     /* overlay is now fixed and no longer a hover element */
     .overlay {
-        background: linear-gradient(rgba(0,0,0,0.3),rgb(47, 72, 88,0.3));
+        background: linear-gradient(rgba(0,0,0,0.4),#2f4858);
         opacity: 1;
+        width: 95%;
+        height: 95%;
     }
     /* text is fixed and no longer a hover element */
     .gallery-text {
