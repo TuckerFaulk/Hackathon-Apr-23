@@ -4,9 +4,12 @@
 
 {% block content %}
 <div class="container">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         <div class="col text-center mt-3">
             <h1 class="">Edit Your Private Profile</h1>
+        </div>
+        <div class="col row d-flex justify-content-center align-items-center mt-3">
+            <a href="{% url 'messaging:inbox' %}" class="btn btn-primary">View Messages</a>
         </div>
     </div>
 
@@ -187,7 +190,6 @@
             {% endif %}
         </div>
     </div>
-    <a href="{% url 'messaging:inbox' %}" class="btn btn-primary">View Messages</a>
 </div>
 
 {% endblock %}
