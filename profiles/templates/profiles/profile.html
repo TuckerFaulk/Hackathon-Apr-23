@@ -4,9 +4,12 @@
 
 {% block content %}
 <div class="container">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         <div class="col text-center mt-3">
             <h1 class="">Edit Your Private Profile</h1>
+        </div>
+        <div class="col row d-flex justify-content-center align-items-center mt-3">
+            <a href="{% url 'messaging:inbox' %}" class="btn btn-primary">View Messages</a>
         </div>
     </div>
 
@@ -153,31 +156,6 @@
                                 <input type="hidden" name="follow_id" value="{{ followed_user.id }}">
                                 <button type="submit" class="btn btn-primary">Unfollow</button>
                             </form>
-
-                            <!-- {% if followed_user.followed_user.is_fullname %}
-                                <br>{{ followed_user.followed_user.fullname }}
-                            {% endif %}
-                            {% if followed_user.followed_user.is_user_email %}
-                                <br>{{ followed_user.followed_user.user_email }}
-                            {% endif %}
-                            {% if followed_user.followed_user.is_user_phone %}
-                                <br>{{ followed_user.followed_user.user_phone }}
-                            {% endif %}
-                            {% if followed_user.followed_user.is_linkedin %}
-                                <br>{{ followed_user.followed_user.linkedin }}
-                            {% endif %}
-                            {% if followed_user.followed_user.is_rank %}
-                                <br>{{ followed_user.followed_user.rank }}
-                            {% endif %}
-                            {% if followed_user.followed_user.is_branch_of_military_served %}
-                                <br>{{ followed_user.followed_user.get_branch_of_military_served_display }}
-                            {% endif %}
-                            {% if followed_user.followed_user.is_length_of_service %}
-                                <br>{{ followed_user.followed_user.length_of_service }}
-                            {% endif %}
-                            {% if followed_user.followed_user.is_past_deployments %}
-                                <br>{{ followed_user.followed_user.past_deployments }}
-                            {% endif %} -->
                         </div>
                     {% endfor %}
                 </div>
@@ -187,7 +165,6 @@
             {% endif %}
         </div>
     </div>
-    <a href="{% url 'messaging:inbox' %}" class="btn btn-primary">View Messages</a>
 </div>
 
 {% endblock %}

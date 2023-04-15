@@ -7,3 +7,7 @@ class Index(TemplateView):
 
 class AboutUs(TemplateView):
     template_name = 'home/about-us.html'
+
+
+class Resources(TemplateView):
+    template_name = 'home/resources.html'
