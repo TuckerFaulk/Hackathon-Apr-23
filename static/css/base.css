@@ -22,7 +22,7 @@
 
 .nav-link {
     color: #fff !important;
-    font-size: 0.75rem;
+    font-size: 1rem;
     border-bottom: 1px solid #89bdbb;
 }
 
@@ -233,7 +233,8 @@
 }
 
 .footer a:hover {
-    color: #88bdbc;
+    transform: translate(0, -10px);
+    color: #fff;
 }
 
 .footer-middle {
@@ -258,6 +259,179 @@
 
 /* END OF FOOTER SECTION */
 
+/* GALLERY SECTION - HOME PAGE */
+
+/* flexbox config for responsive sizing */
+#gallery {
+    width: 100%;
+    min-height: 800px;
+    max-height: 100%;
+    padding: 70px 0;
+    background: #fff;
+}
+
+.gallery-box {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+}
+
+.gallery-image {
+    flex-basis: 25%;
+    text-align: center;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    color: #fff;
+    position: relative; 
+}
+
+.gallery-image img {
+    width: 100%;
+    padding: 10px;
+}
+
+/* overlay covers 100% of each image to provide darker background for text which is centred */
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background: linear-gradient(rgba(0,0,0,0.5),#2f4858);
+    opacity: 0;
+    transition: 1s;
+}
+
+/* overlay becomes visible once hovered over*/
+.gallery-image:hover .overlay {
+    opacity: 1;
+}
+
+/*overlay transitions up from bottom of image*/
+.gallery-image:hover .gallery-text {
+    bottom: 40%;
+    opacity: 1;
+}
+
+/* asthetic line in overlay*/
+.hr0 {
+    background: #fff;
+    height: 2px;
+    border: 0;
+    margin: 15px auto;
+    width: 60%;
+}
+
+/* navigation button appears in overlay and links to gallery page */
+.gallery-image a {
+    cursor: pointer;
+    background-color: rgb(130, 175, 33,0.9);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.gallery-image a:hover {
+    background-color: #fff;
+    color: #82af21;
+    border: 2px solid #82af21;
+}
+
+/* text config */
+/* stlye theme consistent across site */
+.gallery-image h3, a {
+    color: #fff;
+    font-weight: normal;
+}
+
+.gallery-title {
+    text-align: center;
+    color: #2f4858; 
+}
+
+.gallery-title h2 {
+    font-size: 3rem;
+    word-spacing: 4px;
+}
+
+.gallery-title h3 {
+    font-family: 'lato', sans-serif;
+    font-size: 2rem;
+    padding-bottom: 20px;
+}
+
+.gallery-title h4 {
+    font-family: 'lato', sans-serif;
+    font-size: 1.5rem;
+    word-spacing: 4px;
+    color: #2f4858; 
+    padding-bottom: 40px;
+}
+
+.gallery-text {
+    width: 80%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: 1s;
+}
+
+.gallery-text p {
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1250px) {
+
+    /* gallery section - home page @ 1250px */
+
+    .gallery-image {
+        flex-basis: 40%;
+    }
+    /* overlay is now fixed and no longer a hover element */
+    .overlay {
+        background: linear-gradient(rgba(0,0,0,0.3),rgb(47, 72, 88,0.3));
+        opacity: 1;
+    }
+    /* text is fixed and no longer a hover element */
+    .gallery-text {
+        width: 100%;
+        height: 60%;
+        opacity: 1;
+        font-size: 0.5em;
+    }
+    /* text is centered in images */
+    .gallery-image:hover .gallery-text {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+/* gallery section - home page @ 800px */
+@media screen and (max-width: 800px) {
+    #gallery {
+        min-height: 100%;
+    }
+
+    /* gallery collapes to be 1 image per row */
+    .gallery-image {
+        flex-basis: 90%;
+        border-radius: 7px;
+        max-height: 320px;
+        max-width: 320px;
+        display: block;
+        margin: auto;
+    }
+
+    .gallery-text h3 {
+        padding-bottom: 10px;
+    }
+
+    .hr0 {
+        display: none;
+    }
+}
 
 /* Toast Styling */
 
