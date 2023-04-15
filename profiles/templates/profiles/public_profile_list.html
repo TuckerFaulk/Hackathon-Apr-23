@@ -3,7 +3,7 @@
 
 
 {% block content %}
-    <h1 class="text-center">Find a Veteran</h1>
+    <h1 class="text-center mt-3 mb-3">Find a Veteran</h1>
     <!-- SEARCHING & FILTERING: -->
     <!-- <div class="container mx-auto pr-5 pl-r">
         <form class="form-inline my-2 my-lg-0" method="GET">
@@ -13,13 +13,11 @@
     </div> -->
 
     <div class="container mx-auto pr-5 pl-r">
+
         <form class="form-inline my-2 my-lg-0 mx-5" method="GET">
-            <select class="form-control mr-sm-2" name="rank">
-            <option value="">Rank</option>
-            <option value="rank1">Rank 1</option>
-            <option value="rank2">Rank 2</option>
-            <!-- Add other options for rank -->
-            </select>
+
+            <label for="rank" class="form-label mr-2">Rank:</label>
+            <input type="text" class="form-control" id="rank" name="rank" value="{{ rank }}">
 
             <select class="form-control mr-sm-2" name="branch_of_military_served">
             <option value="">Branch of Military Served</option>
@@ -37,29 +35,6 @@
         </form>
     </div>
 
-
-    <div class="container mx-5">
-        <form method="get">
-            <div class="mb-3">
-            <label for="rank" class="form-label">Rank:</label>
-            <input type="text" class="form-control" id="rank" name="rank" value="{{ rank }}">
-            </div>
-            <div class="mb-3">
-            <label for="branch_of_military_served" class="form-label">Branch of Military Served:</label>
-            <input type="text" class="form-control" id="branch_of_military_served" name="branch_of_military_served" value="{{ branch_of_military_served }}">
-            </div>
-            <div class="mb-3">
-            <label for="length_of_service" class="form-label">Length of Service:</label>
-            <input type="text" class="form-control" id="length_of_service" name="length_of_service" value="{{ length_of_service }}">
-            </div>
-            <div class="mb-3">
-            <label for="past_deployments" class="form-label">Past Deployments:</label>
-            <input type="text" class="form-control" id="past_deployments" name="past_deployments" value="{{ past_deployments }}">
-            </div>
-            <button type="submit" class="btn btn-primary">Filter</button>
-        </form>
-    </div>
-
     <hr>
 
     <!-- DISPLAYS THE LIST OF PROFILES -->
@@ -69,9 +44,9 @@
         <div class="col-md-4">
         <div class="card mb-4">
             {% if "placeholder" in profile.profile_picture.url %}
-            <img src="https://res.cloudinary.com/dzqdaqlba/image/upload/v1681415640/Hackathon%20London/cc12_z22lt1.png" class="card-img-top" alt="{{ profile.preferred_display_name }}">
+            <img src="https://res.cloudinary.com/dzqdaqlba/image/upload/v1681415640/Hackathon%20London/cc12_z22lt1.png" class="card-img-top find-vet-img" alt="{{ profile.preferred_display_name }}">
             {% else %}
-            <img src="{{ profile.profile_picture.url }}" class="card-img-top" alt="{{ profile.preferred_display_name }}">
+            <img src="{{ profile.profile_picture.url }}" class="card-img-top find-vet-img" alt="{{ profile.preferred_display_name }}">
             {% endif %}
             <div class="card-body">
             <h5 class="card-title">{{ profile.preferred_display_name }}</h5>

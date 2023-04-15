@@ -584,3 +584,8 @@
 .user-tag {
     color: #007bff;
 }
+
+.find-vet-img {
+    height: 300px;
+    object-fit: cover;
+}
