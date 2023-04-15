@@ -261,7 +261,7 @@
    text-decoration: none;
 }
 
-.footer a:hover {
+.footer-right a:hover {
     transform: translate(0, -10px);
     color: #fff;
 }
@@ -753,33 +753,6 @@
     }
   }
 
-<<<<<<< HEAD
-/* this definetly isn't the animation that makes one profile picture spin out of the screen when clicked... */
-@keyframes profile-madness  {
-    0% {
-        transform: translateX(0%);
-    }
-    50% {
-        transform: translateX(1000%) rotate(1440deg);
-
-    }
-    51% {
-        transform: translateY(-700%) 
-    }
-    95% {
-        transform: translateX(0%) 
-    }
-    97% {
-        transform: translateY(5%) 
-    }
-    99% {
-        transform: translateY(1%) 
-    }
-    100% {
-        transform: translateY(0%) 
-    }
-}
-
 /* Posts Styling */
 
 .post-title {
@@ -815,5 +788,3 @@
     border: 1px rgb(85, 84, 84) solid;
 }
 
-=======
->>>>>>> 2830b0f (add animation to about us profile imgs)
