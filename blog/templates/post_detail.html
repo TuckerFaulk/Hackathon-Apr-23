@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row mt-3 mb-3">
             <div class="col d-flex justify-content-end">
-            {% if user.is_authenticated and comment.author.preferred_display_name == user.preferred_display_name %}
+            {% if user.is_authenticated and post.author.preferred_display_name == userprofile.preferred_display_name %}
                 <a href="{% url 'post_edit' slug=post.slug %}" class="btn btn-signup btn-lg">Edit</a>
             {% endif %}
             </div>
@@ -98,7 +98,7 @@
                     <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
 
-                    {% if user.is_authenticated and comment.author.preferred_display_name == user.preferred_display_name %}
+                    {% if user.is_authenticated and comment.author.preferred_display_name == userprofile.preferred_display_name %}
                     <a href="{% url 'comment_edit' comment.pk %}" class="btn btn-signup btn-lg">Edit</a>
                     {% endif %}
                 </div>

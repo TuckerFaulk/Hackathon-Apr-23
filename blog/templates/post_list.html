@@ -21,7 +21,7 @@
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}">
                                 {% endif %}
                                 <div class="image-flash">
-                                    <p class="author">Author: {{ post.author.preferred_display_name }}</p>
+                                    <p class="author">Author: {{ post.author.preferred_display_name }} </p>
                                 </div>
                             </div>
                             <a href="{% url 'post_detail' post.slug %}" class="post-link user-tag">
@@ -29,7 +29,7 @@
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
                             <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
+                            <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-heart"></i>
                                 {{ post.number_of_likes }}</p>
                         </div>
                     </div>
