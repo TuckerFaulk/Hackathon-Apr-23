@@ -28,7 +28,7 @@
                     {% endif %}
                 {% endif %}
                 {% if user.is_authenticated and user_profile.user != user %}
-                    <a href="{% url 'messaging:compose_message' recipient_id=user_profile.user.id %}" class="btn btn-primary">Message</a>
+                    <a href="{% url 'messaging:compose_message' recipient_id=user_profile.user.id %}" class="btn btn-primary ml-2">Message</a>
                 {% endif %}
             </div>
         </div>
