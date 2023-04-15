@@ -10,7 +10,8 @@
                 <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title">{{ post.title }}</h1>
                 <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                <p class="post-subtitle">{{ post.author.preferred_display_name }} | {{ post.created_on }}</p>
+                <p class="post-subtitle">{{ post.excerpt }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
@@ -33,7 +34,9 @@
                 <p class="card-text ">
                     {{ post.content | safe }}
                 </p>
+                {% if user.is_authenticated and comment.author.preferred_display_name == user.preferred_display_name %}
                     <a href="{% url 'post_edit' slug=post.slug %}" class="btn btn-signup btn-lg">Edit</a>
+                {% endif %}
                 <div class="row">
                     <div class="col-1">
                         <strong>
@@ -78,13 +81,13 @@
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
                         <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                        {{ comment.name }}
+                        {{ comment.author.preferred_display_name }}
                         <span class=" text-muted font-weight-normal">
                             <!-- The comment's created date goes here -->
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
-                    {% if user.is_authenticated and comment.name.id == user.username.id %}
+                    {% if user.is_authenticated and comment.author.preferred_display_name == user.preferred_display_name %}
                     <a href="{% url 'comment_edit' comment.pk %}" class="btn btn-signup btn-lg">Edit</a>
                     {% endif %}
                     <!-- The body of the comment goes before the | -->
