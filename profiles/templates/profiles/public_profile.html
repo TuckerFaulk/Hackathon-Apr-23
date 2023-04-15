@@ -16,19 +16,19 @@
                     {% if is_following %}
                         <form id="unfollow-form" action="{% url 'remove_from_follow_list' user_profile.user.id %}" method="post">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-secondary" id="unfollow-btn">Unfollow</button>
+                            <button type="submit" class="btn" id="unfollow-btn">Unfollow</button>
                             <input type="hidden" name="user_id" value="{{ user_profile.user.id }}">
                         </form>
                     {% else %}
                         <form id="follow-form" action="{% url 'add_to_follow' user_profile.user.id %}" method="post">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-primary" id="follow-btn">Follow</button>
+                            <button type="submit" class="btn" id="follow-btn">Follow</button>
                             <input type="hidden" name="user_id" value="{{ user_profile.user.id }}">
                         </form>
                     {% endif %}
                 {% endif %}
                 {% if user.is_authenticated and user_profile.user != user %}
-                    <a href="{% url 'messaging:compose_message' recipient_id=user_profile.user.id %}" class="btn btn-primary ml-2">Message</a>
+                    <a href="{% url 'messaging:compose_message' recipient_id=user_profile.user.id %}" class="btn ml-2">Message</a>
                 {% endif %}
             </div>
         </div>
