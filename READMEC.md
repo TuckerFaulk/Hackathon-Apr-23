@@ -13,7 +13,7 @@
 
 This ER diagram captures the relationships between real-world entities. The entities are the data points of objects such as persons, places and things and together with their attributes, compose their domain, ie, their individual table. The cardinality (relationships) between these entities are then mapped and identified.
 
-* Data Modellin
+* Data Modelling
     As evidenced by the ERD discussed above, the data model type used for this project is the Relational Model.
     * **User Model**
     - The User model is a component of Django's Authentication system and contains information about the user.
@@ -51,8 +51,8 @@ This ER diagram captures the relationships between real-world entities. The enti
 | 2                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | Visitor     | Provide information about service and MH issues                                                                                                           |
 | 3                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | Visitor     | Post content (images/stories)                                                                                              |
 | 4                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | Visitor     |                                                                                                                    |
-| 5                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | Visitor     | 
+| 5                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | Visitor     |
                   |
 | 6                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | User        |                                                                                      |
-| 7                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | User        | 
-| REGISTRATION &amp; USER ACCOUNTS |  |             |                                                                                                                                                                  
+| 7                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | User        |
+| REGISTRATION &amp; USER ACCOUNTS |  |             |
