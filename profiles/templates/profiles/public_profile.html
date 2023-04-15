@@ -3,7 +3,7 @@
 
 {% block content %}
     <div class="container mx-auto">
-        
+
         <div class="row mt-3">
             <div class="col-10 text-center">
                 {% if user_profile.preferred_display_name %}
@@ -27,6 +27,9 @@
                         </form>
                     {% endif %}
                 {% endif %}
+                {% if user.is_authenticated and user_profile.user != user %}
+                    <a href="{% url 'messaging:compose_message' recipient_id=user_profile.user.id %}" class="btn btn-primary">Message</a>
+                {% endif %}
             </div>
         </div>
 
@@ -49,50 +52,48 @@
                         {% endif %}
                     {% endif %}
             </div>
-           
+
             <div class="col">
                 {% if user_profile.is_fullname %}
                     <p><strong>Full Name:</strong> {{ user_profile.fullname }}</p>
                 {% endif %}
-        
+
                 {% if user_profile.is_user_email %}
                     {% if user_profile.user_email %}
                         <p><strong>Email:</strong> {{ user_profile.user_email }}</p>
                     {% endif %}
                 {% endif %}
-        
+
                 {% if user_profile.is_user_phone %}
                     {% if user_profile.user_phone %}
                         <p><strong>Phone:</strong> {{ user_profile.user_phone }}</p>
                     {% endif %}
                 {% endif %}
-        
+
                 {% if user_profile.is_linkedin %}
                     {% if user_profile.linkedin %}
                         <p><strong>LinkedIn:</strong> {{ user_profile.linkedin }}</p>
                     {% endif %}
                 {% endif %}
-        
 
-        
                 {% if user_profile.is_rank %}
                     {% if user_profile.rank %}
                         <p><strong>Rank:</strong> {{ user_profile.rank }}</p>
                     {% endif %}
                 {% endif %}
-        
+
                 {% if user_profile.is_branch_of_military_served %}
                     {% if user_profile.branch_of_military_served %}
                         <p><strong>Branch of Military Served:</strong> {{ user_profile.get_branch_of_military_served_display }}</p>
                     {% endif %}
                 {% endif %}
-        
+
                 {% if user_profile.is_length_of_service %}
                     {% if user_profile.length_of_service %}
                         <p><strong>Length of Service:</strong> {{ user_profile.length_of_service }}</p>
                     {% endif %}
                 {% endif %}
-        
+
                 {% if user_profile.is_past_deployments %}
                     {% if user_profile.past_deployments %}
                         <p><strong>Past Deployments:</strong> {{ user_profile.past_deployments|safe }}</p>

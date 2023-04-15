@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="mb-4">{{ message.subject }}</h1>
+    <p class="mb-4">From: {{ message.sender.username }}<br>Timestamp: {{ message.timestamp|date:"F j, Y, g:i a" }}</p>
+    <p>{{ message.message }}</p>
+    <a href="{% url 'messaging:reply_message' message_id=message.id %}" class="btn btn-primary">Reply</a>
+{% endblock %}
+
+{% block scripts %}
+  {{ form.media }}
+{% endblock %}

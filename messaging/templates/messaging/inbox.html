@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="mb-4">Inbox</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sender</th>
+                <th>Subject</th>
+                <th>Timestamp</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for message in messages %}
+            <tr{% if not message.read %} class="font-weight-bold" {% endif %}>
+                <td>{{ message.sender.username }}</td>
+                <td><a href="{% url 'messaging:message_detail' message.id %}">{{ message.subject }}</a></td>
+                <td>{{ message.timestamp|date:"F j, Y, g:i a" }}</td>
+                <td><a href="{% url 'messaging:message_detail' message.id %}">View</a></td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">No messages</td>
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
