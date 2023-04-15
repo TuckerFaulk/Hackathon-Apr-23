@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1 class="mb-4">Reply to "{{ message.subject }}"</h1>
+    <p class="mb-4">To: {{ message.sender.username }}</p>
+    <form method="post" class="mt-4 needs-validation" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary mt-3">Send</button>
+    </form>
+{% endblock %}

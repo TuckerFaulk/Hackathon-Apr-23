@@ -15,9 +15,9 @@
             {% for message in messages %}
             <tr{% if not message.read %} class="font-weight-bold" {% endif %}>
                 <td>{{ message.sender.username }}</td>
-                <td><a href="{% url 'message_detail' message.id %}">{{ message.subject }}</a></td>
+                <td><a href="{% url 'messaging:message_detail' message.id %}">{{ message.subject }}</a></td>
                 <td>{{ message.timestamp|date:"F j, Y, g:i a" }}</td>
-                <td><a href="{% url 'message_detail' message.id %}">View</a></td>
+                <td><a href="{% url 'messaging:message_detail' message.id %}">View</a></td>
                 </tr>
                 {% empty %}
                 <tr>

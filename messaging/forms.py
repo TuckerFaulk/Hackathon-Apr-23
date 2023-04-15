@@ -1,4 +1,5 @@
 from django import forms
+from .models import Message
 
 
 class ComposeMessageForm(forms.Form):
@@ -6,5 +7,17 @@ class ComposeMessageForm(forms.Form):
     message = forms.CharField(widget=forms.Textarea)
 
 
-class ReplyMessageForm(forms.Form):
-    message = forms.CharField(widget=forms.Textarea)
+class ReplyMessageForm(forms.ModelForm):
+    message = forms.CharField(
+        label='',
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Reply message...',
+            'rows': 5,
+        }),
+        required=True,
+    )
+
+    class Meta:
+        model = Message
+        fields = ('message',)

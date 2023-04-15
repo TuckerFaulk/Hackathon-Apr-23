@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     # Others
     'crispy_forms',
     'djrichtextfield',
+    'django_extensions',
 ]
 
 SITE_ID = 1

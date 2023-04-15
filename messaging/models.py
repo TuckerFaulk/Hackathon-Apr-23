@@ -11,6 +11,8 @@ class Message(models.Model):
     message = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
     read = models.BooleanField(default=False)
+    reply = models.ForeignKey('self', on_delete=models.CASCADE, null=True,
+                              blank=True, related_name='replies')
 
     def __str__(self):
         return self.subject
