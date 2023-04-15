@@ -55,6 +55,7 @@
     position: relative;
     padding: 10px;
     border: 1px rgba(128, 128, 128, 0.404) solid;
+    height: 475px;
     
   }
 
@@ -146,21 +147,22 @@
 }
 
 @media screen and (max-width: 1100px) {
-    .card {
+    .homepage-card {
         width: 49%;
       }
 }
 
 @media screen and (max-width: 768px) {
-    .card {
+    .homepage-card {
         width: 100%;
+        height: 425px;
       }
 }
 
 /* CAROUSEL */
 
 #carousel-container {
-    max-width: 500px ;
+    max-width: 1000px ;
     margin: 50px auto ;
 }
 
@@ -172,18 +174,45 @@
 
 
 .carousel-item img {
-    max-height: 500px !important;
-    max-width: 500px !important;
+    max-height: 1000px !important;
+    max-width: 1000px !important;
+    background-position: center;
     color: rgb(0, 0, 0);
-    
 }
 
-.carousel-caption h5 {
+.carousel-h5 {
     color: rgb(0, 0, 0);
-    max-height: 500px !important;
-    max-width: 500px !important;
     background-color: #f8f9fae8;
 }
+
+
+
+@media screen and (max-width: 1100px) {
+    #carousel-container {
+        max-width: 600px ;
+        margin: 50px auto ;
+    }
+    .carousel-item img {
+    max-height: 600px !important;
+    max-width: 600px !important;
+    background-position: center;
+    color: rgb(0, 0, 0);
+}}
+
+@media screen and (max-width: 768px) {
+    #carousel-container {
+        max-width: 300px ;
+    }
+    .carousel-item img {
+    max-height: 300px !important;
+    max-width: 300px !important;
+    color: rgb(0, 0, 0);
+    }
+    .carousel-h5 {
+    font-size: 0.75rem;
+    }
+}
+
 
 
 /* HERO IMAGE AND COVER TEXT - HOME PAGE */
@@ -559,6 +588,120 @@
     display: inline;
 }
 
+/* ABOUT US */
+
+.main-about {
+    margin:2rem 0rem 4rem 0rem;
+    gap:2rem;
+    padding:2rem;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+#about-team-container {
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:2rem;
+    width:clamp(10rem, 90vw, 80rem);
+}
+
+.contributor-profile {
+    display:flex;
+    width:20rem;
+    align-items: center;
+    flex-direction: column;
+    padding:2rem;
+    gap:2rem;
+    border-radius: 30px;
+    background-color: var(--primary-color);
+}
+
+.contributor-links {
+    display: flex;
+    width:100%;
+    justify-content: center;
+    gap:2rem;
+}
+
+
+
+.contributor-links a i {
+    color:black;
+    font-size:2.5rem;
+}
+
+.about-img {
+    width: 13rem;
+    border-radius: 50%;
+}
+
+.contributor-profile:nth-child(1) img {
+    transition: 0.5s;
+}
+
+.contributor-profile:nth-child(1) img:hover {
+    transition: 0.5s;
+    transform:rotate(180deg);
+}
+
+/* Not samars bouncing profile picture */
+.contributor-profile:nth-child(4) img {
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.contributor-profile:nth-child(4) img:hover {
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes bounce {
+    0% {
+      transform: translateY(0%);
+    }
+    30% {
+      transform: translateY(-5%);
+    }
+    50% {
+      transform: translateY(0%);
+    }
+    80% {
+      transform: translateY(-5%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+/* this definetly isn't the animation that makes one profile picture spin out of the screen when clicked... */
+@keyframes profile-madness  {
+    0% {
+        transform: translateX(0%);
+    }
+    50% {
+        transform: translateX(1000%) rotate(1440deg);
+
+    }
+    51% {
+        transform: translateY(-700%) 
+    }
+    95% {
+        transform: translateX(0%) 
+    }
+    97% {
+        transform: translateY(5%) 
+    }
+    99% {
+        transform: translateY(1%) 
+    }
+    100% {
+        transform: translateY(0%) 
+    }
+}
 
 /* Posts Styling */
 
@@ -580,3 +723,4 @@
 .comments {
     border: 1px lightgray solid;
 }
+
