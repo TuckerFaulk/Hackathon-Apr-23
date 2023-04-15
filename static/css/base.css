@@ -435,14 +435,14 @@
 
 /* Toast Styling */
 
-.message-conatiner {
+.message-container {
     position: fixed;
-    top: 72px;
-    right: 30px;
-    z-index: 9999999;
+    top: 4.5rem;
+    right: 1rem;
+    z-index: 99999999999;
 }
 
-.customer-toast {
+.custom-toast {
     overflow: visible;
 }
 
@@ -557,4 +557,26 @@
 
 .btn-unfollow {
     display: inline;
+}
+
+
+/* Posts Styling */
+
+.post-title {
+    margin-top: 20%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: gray;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.comments {
+    border: 1px lightgray solid;
 }
