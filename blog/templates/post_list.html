@@ -42,8 +42,9 @@
             </div>
         </div>
 
-        <div class="col-4">
+
             {% if user.is_authenticated %}
+            <div class="col-4">
             <div class="container-fluid">
                 <div class="card-body">
                     <!-- For later -->
@@ -56,8 +57,9 @@
                     </form>
                 </div>
             </div>
-            {% endif %}
         </div>
+            {% endif %}
+
     </div>
     {% if is_paginated %}
     <nav aria-label="Page navigation">
