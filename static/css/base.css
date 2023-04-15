@@ -589,3 +589,7 @@
     height: 300px;
     object-fit: cover;
 }
+
+.reply-message-box {
+    border: 1px rgb(85, 84, 84) solid;
+}
