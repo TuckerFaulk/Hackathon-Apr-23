@@ -1,7 +1,5 @@
 **CHARLIE CHARLIE ONE**
 
-[amiresponsive mockups of project]()
-
 **[Link to the deployed site](https://hackathon-apr-2023.herokuapp.com/)
 
 # Project Overview
@@ -11,40 +9,43 @@ This platform was built using Django, Python, JavaScript and Bootstrap 4. The si
 
 Charlee Charlee One is Team 2's Stamp Out The Stigma project submission for Code Institute and Social Soda Hackathon (April 2023).
 
-
 **TABLE OF CONTENTS**
 * [USER EXPERIENCE](#user-experience)
     * [Strategy Plane](#strategy-plane)
     * [Scope Plane](#scope-plane)
         * [Feature Planning](#feature-planning)
         * [User Stories](#user-stories)
-    * [Structure Plane](#structure-plane)>
+    * [Structure Plane](#structure-plane)
         * [Database Design](#database-design)
-            * [Database ERD](#database-erd)
-            * [Data Modelling](#data-modelling)
     * [Skeleton Plane](#skeleton-plane)
         * [Wireframes](#wireframes)
-        * [Colour Palette](#colour-paletteframes)
-* [Agile Methodology](#agile-methodology)
-    * [GitHub Projects](#github-projects)
+        * [Colour Palette](#colour-palette)
 * [Features](#features)
-* [Future Development, Iteration and Implementation](#future-development-iteration-and-implementation)
+* [Testing](#testing)
+    * [Functional Testing](#functional-testing)
 * [Technologies Used](#technologies-used)
     * [Languages Used](#languages-used)
     * [Frameworks Used](#frameworks-used)
     * [Programmes and Applications](#frameworks-used)
-* [Credits](#credits)
 * [Acknowledgements](#acknowledgements)
+* [The Team](#the-team)
 
 <hr>
----
+
 # USER EXPERIENCE
 
 ## Strategy Plane
 
+### Project Goals
+
+This section aims to make a positive difference in the mental health and well-being of veterans.
+
+Our vision is to help veterans in their transition to getting back to life and working as any other civilian.
+As most of the veterans face too many questions about what to do and how life is after their’s serving, we aim to get them together by sharing their’s histories and finding others in similar situations – being able to express their feelings and challenges without being judged (for this reason, an anonymous user feature has been implemented).
+
 
 ## Scope Plane
-**Feature Planning**
+### Feature Planning
 When planning the Charlie Charlie One's features and scope, we drew up a Desirability, Importance and Viability analysis of all the features to be included in the project, and ranked each of these by order of importance from low (1) to high (5). The features that ranked the highest will be prioritised and delivered as part of the MVP. The target users for each ranked feature were also included.
 
 | # | Feature | Target User | Desirability | Importance | Viability  | Delivered |
@@ -89,41 +90,66 @@ When planning the Charlie Charlie One's features and scope, we drew up a Desirab
 | 30 | Email Subscription, Powered by MailChimp | Registered Subscribers | 3 | 3 | 3 | ❌ |
 | Contact Us |  |  |  |  |  |  |
 | 31 | Contact Form | All Users <sup>1</sup> | 3 | 3 | 3 | ❌ |
-## Structure Plane
-### Interaction Design
-
-### Database Design
-* Database
-
-**Entity Relationship Diagram**
-* ERD ![ERD](./documentation/erd.svg)
-
-This ER diagram captures the relationships between real-world entities. The entities are the data points of objects such as persons, places and things and together with their attributes, compose their domain, ie, their individual table. The cardinality (relationships) between these entities are then mapped and identified.
 
 ### User Stories
-#### First Time Visitor Goals - As a first time user who has not created an account, I want to be able to:
+
+**First Time Visitor Goals - As a first time user who has not created an account, I want to be able to:**
 * Immediately understand the main purpose and use of the platform, **Charlie Charlie One**, and intuitively understand how to use it
 * Search for specific Veterans based on certain criteria, filter list of registered Veterans or view all.
 * Register/ create a user account
 
-#### Registered User Goals - As a registered user, I want to be able to:
+**Registered User Goals - As a registered user, I want to be able to:**
 * Learn more about what I can do on the **Charlie Charlie One** Platform
 * Create, read, edit, and delete my personal information
 * Set which of my information I choose to display publicly
 * Upload or not upload my image
 
+## Structure Plane
+### Interaction Design
 
+#### User Flow Diagram
 
-* Have access to tools I may need in order to add, update or delete my recipes
-* Search and view specific recipes (if already available on the App)
-* Be forewarned of the consequences of what I am about to do on the App, such as deleting my recipes
-* Have my own member user dashboard (read functionality)
+![User Journey Flow](./documentation/rising-women-user-flow-diagram.png)
 
-#### Site Admin Goals - As an administrator, I want to be able to:
-* Have the ability to maintain the Paleo Recipe App, in particular the categories
-* Add, edit and delete my own recipes
-* Add, edit, retrieve and delete any recipe by category
-* Search and view specific recipes (if already available on the App)
+### Database Design
+
+#### Database ERD
+* [ERD Version 1](./documentation/rising-women-erd-v1.png)
+* [ERD Version2](./documentation/rising-women-erd-v2.png)
+* [ERD Version3](./documentation/rising-women-erd-v3.png)
+
+This ER diagram captures the relationships between real-world entities. The entities are the data points of objects such as persons, places and things and together with their attributes, compose their domain, ie, their individual table. The cardinality (relationships) between these entities are then mapped and identified.
+
+#### Data Modelling
+As evidenced by the ERD discussed above, the data model type used for this project is the Relational Model.
+
+## Skeleton Plane
+
+### Wireframes
+
+We made sure they met the user and owner group criteria. As a result were used as a design for the project.
+
+![home page](/images/homepage.png)
+
+<hr>
+
+![account page](/images/accounpage.png)
+
+<hr>
+
+![feed page](/images/feedpage.png)
+
+<hr>
+
+![messages page](/images/messagepage.png)
+
+### Colour Palette
+
+The app's colour scheme was devised using the colour palette generator, and it consists of 5 colours:
+
+We were inspired by this colour scheme as it reinforces the friendly, fresh and optimistic branding that is important to the app's tone. It also has colours with appropriate contrast for legibility and accessibility.
+
+![color palete](/images/colourpalete.png)
 
 # Features
 Charlie Charlie One provides:
@@ -134,13 +160,62 @@ Charlie Charlie One provides:
 * Veterans to create a profile and choose which of their information they want to share publicly.
 , private messaging, and group discussions (blog) to facilitate communication and support.
 
-# Future Development, Iteration and Implementation
+* **Toast message**
+    * Display according to the user actions.
+
+* **Hero Image**
+    * We chose a hero image that we felt conveys the topic of the website immediately and catches attention.
+
+* **Navbar**
+
+* ![nav var](/images/nav.png)
+    * Home: Brings the user to the home page
+
+    * About Us: Overview of the team.
+
+    * Post: All post from site users.
+
+    * Resources: List of charities to support users.
+
+    * Register: Opens the form to Register.
+
+    * Login: Opens the option to signUp.
+
+
+* **Histories & Testimonials**
+    * We decide to add testimonials for the veterans share their histories.
+
+![testimonials](/images/testimonial.png)
+
+*  **Footer**
+    ![footer](/images/footer.png)
+   * Facebook link: It takes the user to the facebook home page.
+   * Instagram link: It takes the useer to the Instagram home page.
+   * Linkedin: It takes the useer to the Linkedin home page.
+   * Twitter It takes the useer to the Twitter home page.
+
+# Testing
+
+## Functional Testing
+* Upon opening the site link correctly: Homepage (start screen) should open - Tested, the site loads up.
+
+* From Homepage pressing on the nav links:
+  * Home - takes the user to the Homepage * Tested works as intended.
+  * About Us - list of all of the team.
+  * Post - all post from site users.
+  * Register - takes the user to a form to register - Tested works as intended.
+  * Login - takes the user to a form to sign up- Tested works as intended.
+
+* From Post page pressing on the nav links
+  * Post title - Takes the user to the post detail - tested works as intended.
+
+* From Resources Page - xxx
+    * Resource page - relevant links in different sections takes the user to external resources.
 
 # Technologies Used
 ## Languages Used
 * [HTML5](https://en.wikipedia.org/wiki/HTML5) Used for the content and structure of the site.
 * [CSS3](https://en.wikipedia.org/wiki/CSS#CSS_3) Used for the styling of the site.
-
 * [Python](https://www.python.org/) Used for the back end programming of the site.
 
 ## Frameworks Used
@@ -162,11 +237,25 @@ Charlie Charlie One provides:
 * [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/)  - Used to test responsiveness and debug.
 * [Cloudinary](https://cloudinary.com/)  - Used to add images in the cloud.
 
-## Testing, Bugs & Solutions
-
-* Known Bugs
-    * Validation error on Profile template. - Priority to be fixed in next sprint
-
-### Acknowledgments
+# Acknowledgments
     Thank you to the Code Institute Hack Team who organised this Hackathon.
+
+# The Team
+
+* ## [Thomas Faulkner](https://www.linkedin.com/in/thomas-faulkner-b032b479/) [![thomas](https://img.shields.io/badge/TuckerFaulk-GitHub-%23ff8700)](https://github.com/TuckerFaulk)
+
+* ## [Stuart Wall](https://www.linkedin.com/in/swall289) [![Stuart](https://img.shields.io/badge/Clinelly%20%C2%B7%20he%2Fhim-GitHub-%230aff99)](https://github.com/Clinelly)
+
+* ## [Joy Zadan](https://www.linkedin.com/in/joy-zadan/) [![Joy](https://img.shields.io/badge/JoyZadan-GitHub-%23ff0a54)](https://github.com/JoyZadan)
+
+* ## [Anthony Wilson](https://www.linkedin.com/in/ant-wilson/) [![Anthony](https://img.shields.io/badge/Tonywilson1211-GitHub-success)](https://github.com/Tonywilson1211)
+
+* ## [Grace McKenna](https://www.linkedin.com/in/grace-mckenna-bb7066111/) [![Grace](https://img.shields.io/badge/gracemcken-GitHub-%23bc96e6)](https://github.com/gracemcken)
+
+* ## [Pamela Luna](https://www.linkedin.com/) [![Pamela](https://img.shields.io/badge/Pamelalun-GitHub-ff69b4)](https://github.com/Pamelalun)
+
+* ## [Christopher Mensah](https://www.linkedin.com/in/christopher-anthony-mensah/) [![Christopher](https://img.shields.io/badge/Christophermensah-GitHub-%23008198)](https://github.com/Christophermensah)
+
+* ## [Wanda Grj](https://www.linkedin.com/) [![wanda](https://img.shields.io/badge/WANDA--grj-GitHub-%2300cecb)](https://github.com/WANDA-grj)
+
 <hr>
