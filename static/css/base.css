@@ -580,3 +580,7 @@
 .comments {
     border: 1px lightgray solid;
 }
+
+.user-tag {
+    color: #007bff;
+}
