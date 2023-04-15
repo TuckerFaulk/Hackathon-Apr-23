@@ -107,41 +107,16 @@ When planning the Charlie Charlie One's features and scope, we drew up a Desirab
 
 ### User Stories
 
-| #                                | Issue ID | Target User | User Story                                                                                                                                                                                                 |
-|----------------------------------| --- |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| VIEWING &amp; NAVIGATION         |  |             |                                                                                                                                                                                                            |
-| 1                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | Visitor     | Create a profile                                                                                                                                |
-| 2                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | Visitor     | Provide information about service and MH issues                                                                                                           |
-| 3                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | Visitor     | Post content (images/stories)                                                                                              |
-| 4                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | Visitor     |                                                                                                                    |
-
-| 5                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | Visitor        |                                                                                      |
-| 6                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | User        |                                                                                      |
-| 7                                | [add-here-issue-number](add-here-issue-closed-resolved-number) | User        |
-| REGISTRATION &amp; USER ACCOUNTS |  |             |
-
 **First Time Visitor Goals - As a first time user who has not created an account, I want to be able to:**
 * Immediately understand the main purpose and use of the platform, **Charlie Charlie One**, and intuitively understand how to use it
 * Search for specific Veterans based on certain criteria, filter list of registered Veterans or view all.
 * Register/ create a user account
 
 **Registered User Goals - As a registered user, I want to be able to:**
-<!-- * Learn more about what I can do on the **Charlie Charlie One** Platform
+* Learn more about what I can do on the **Charlie Charlie One** Platform
 * Create, read, edit, and delete my personal information
 * Set which of my information I choose to display publicly
 * Upload or not upload my image
-
-* Have access to tools I may need in order to add, update or delete my recipes
-* Search and view specific recipes (if already available on the App)
-* Be forewarned of the consequences of what I am about to do on the App, such as deleting my recipes
-* Have my own member user dashboard (read functionality) -->
-
-**Site Admin Goals - As an administrator, I want to be able to:**
-<!-- * Have the ability to maintain the Paleo Recipe App, in particular the categories
-* Add, edit and delete my own recipes
-* Add, edit, retrieve and delete any recipe by category
-* Search and view specific recipes (if already available on the App) -->
-
 
 ## Structure Plane
 ### Interaction Design
@@ -238,11 +213,11 @@ Charlie Charlie One provides:
 * ![nav var](/images/nav.png)
     * Home: Brings the user to the home page
 
-    * Feed: xxx
+    * About Us: Overview of the team.
 
-    * About Us: xxx
+    * Post: All post from site users.
 
-    * post: xxx
+    * Resources: List of charities to support users.
 
     * Register: Opens the form to Register.
 
@@ -256,10 +231,10 @@ Charlie Charlie One provides:
 
 *  **Footer**
     ![footer](/images/footer.png)
-   * facebook link: It takes the user to the facebook home page.
-   * instagram link: It takes the useer to the Instagram home page.
+   * Facebook link: It takes the user to the facebook home page.
+   * Instagram link: It takes the useer to the Instagram home page.
    * Linkedin: It takes the useer to the Linkedin home page.
-   * twitter It takes the useer to the Twitter home page.
+   * Twitter It takes the useer to the Twitter home page.
 
 # Testing
 
@@ -269,28 +244,20 @@ Charlie Charlie One provides:
 * From Homepage pressing on the nav links:
   * Home - takes the user to the Homepage * Tested works as intended.
   * About Us - list of all of the team.
-  * Post - xxx
+  * Post - all post from site users.
   * Register - takes the user to a form to register - Tested works as intended.
   * Login - takes the user to a form to sign up- Tested works as intended.
 
 * From Post page pressing on the nav links
-  * Author - Takes the user to the xxxx - tested works as intended.
+  * Post title - Takes the user to the post detail - tested works as intended.
 
 * From Resources Page - xxx
     * Resource page - relevant links in different sections takes the user to external resources.
-
-    * xxxx - takes the user to the xxxx - Tested works as intended.
-    * xxxx - takes the user to the xxxx - Tested works as intended.
-    * xxxx - takes the user to the xxxx - Tested works as intended.
-
-* Register Page:
-    * Form to fill up - takes the user to xxxxx - Tested works as intended.
 
 # Technologies Used
 ## Languages Used
 * [HTML5](https://en.wikipedia.org/wiki/HTML5) Used for the content and structure of the site.
 * [CSS3](https://en.wikipedia.org/wiki/CSS#CSS_3) Used for the styling of the site.
-
 * [Python](https://www.python.org/) Used for the back end programming of the site.
 
 ## Frameworks Used
