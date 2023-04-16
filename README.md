@@ -1,6 +1,8 @@
 **CHARLIE CHARLIE ONE**
 
-**[Link to the deployed site](https://hackathon-apr-2023.herokuapp.com/)
+![responsive](./images/charlie-charlie-one-responsive.png)
+
+**[Link to the deployed site](https://hackathon-apr-2023.herokuapp.com/)**
 
 # Project Overview
 Charlie Charlie One is a Peer Support Platform connecting veterans seeking mental health support with other veterans who have experienced similar challenges. To facilitate communication, support and encourage community engagement, Charlie Charlie One includes a matching system, a private messaging functionality, and group discussions (blog) and private and public profile options for those needing anonymity.
@@ -107,16 +109,9 @@ When planning the Charlie Charlie One's features and scope, we drew up a Desirab
 ## Structure Plane
 ### Interaction Design
 
-#### User Flow Diagram
-
-![User Journey Flow](./documentation/rising-women-user-flow-diagram.png)
-
 ### Database Design
-
 #### Database ERD
-* [ERD Version 1](./documentation/rising-women-erd-v1.png)
-* [ERD Version2](./documentation/rising-women-erd-v2.png)
-* [ERD Version3](./documentation/rising-women-erd-v3.png)
+* ![ERD](./images/erd.svg)
 
 This ER diagram captures the relationships between real-world entities. The entities are the data points of objects such as persons, places and things and together with their attributes, compose their domain, ie, their individual table. The cardinality (relationships) between these entities are then mapped and identified.
 
@@ -183,7 +178,7 @@ Charlie Charlie One provides:
 
 
 * **Histories & Testimonials**
-    * We decide to add testimonials for the veterans share their histories.
+    * We decide to add testimonials for the veterans to share their histories.
 
 ![testimonials](/images/testimonial.png)
 
@@ -238,7 +233,7 @@ Charlie Charlie One provides:
 * [Cloudinary](https://cloudinary.com/)  - Used to add images in the cloud.
 
 # Acknowledgments
-    Thank you to the Code Institute Hack Team who organised this Hackathon.
+    Thank you to the Code Institute Hackathon Team and SODA who organised this Hackathon.
 
 # The Team
 
