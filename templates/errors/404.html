@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container pt-5 pb-4">
+    <div class="card px-md-5 justify-content-center">
+        <div class="card-body text-center">
+            <h1 class="text-center text-warning">Error 404: Page not found.</h1>
+            <a href="{% url 'home' %}" class="btn my-5">Go back to home page...</a>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

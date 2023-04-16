@@ -1,6 +1,6 @@
-**CHARLIE CHARLIE ONE**
+# **CHARLIE CHARLIE ONE**
 
-![responsive](./images/charlie-charlie-one-responsive.png)
+![amiresponsive mockup of the Charlie Charlie One Plattform](./images/charlie-charlie-one-responsive.png)
 
 **[Link to the deployed site](https://hackathon-apr-2023.herokuapp.com/)**
 

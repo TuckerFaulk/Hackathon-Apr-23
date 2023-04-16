@@ -1,22 +1,11 @@
 <header>
-    <!-- <nav class="navbar navbar-expand-md border-bottom bg-light-grey mb-2">
-        <ul class="navbar-nav mb-2 mb-md-0 text-center mr-auto">
-            <li class="nav-item mr-2">
-                <a class="nav-link nav-link-small color-green" href="https://hackathon.codeinstitute.net/teams/304/" target="_blank">Meet Team 2</a>
-            </li>
-        </ul>
-        <div class="d-none d-md-block">
-            {% include 'includes/top_header.html' %}
-        </div>
-    </nav> -->
-
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-
-            <div class="navbar-brand"></div>
+            <div class="navbar-brand">
+            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
+            </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
                     <li class="nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
@@ -54,8 +43,6 @@
                     {% endif %}
                 </ul>
             </div>
-            
         </div>
     </nav>
-
 </header>
