@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container py-5 px-5">
+    <div class="card px-md-5 justify-content-center">
+        <div class="card-body">
+            <h1 class="text-center text-warning">Error 500: Internal Server Error.</h1>
+            <a href="{% url 'home' %}" class="btn">Go back to home page...</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
